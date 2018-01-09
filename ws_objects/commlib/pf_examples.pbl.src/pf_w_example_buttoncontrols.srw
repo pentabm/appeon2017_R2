@@ -1237,7 +1237,7 @@ end event
 type st_27 from statictext within pf_w_example_buttoncontrols
 integer x = 338
 integer y = 2084
-integer width = 229
+integer width = 343
 integer height = 84
 boolean bringtotop = true
 integer textsize = -10
@@ -1247,7 +1247,7 @@ fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "⹏─ߴ"
 long backcolor = 255
-string text = "테스트"
+string text = "테스트합니다."
 boolean focusrectangle = false
 end type
 
