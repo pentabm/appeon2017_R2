@@ -122,6 +122,8 @@ type cb_21 from pf_u_commandbutton within pf_w_example_buttoncontrols
 end type
 type cb_22 from pf_u_commandbutton within pf_w_example_buttoncontrols
 end type
+type st_27 from statictext within pf_w_example_buttoncontrols
+end type
 type gb_1 from pf_u_groupbox within pf_w_example_buttoncontrols
 end type
 type gb_2 from pf_u_groupbox within pf_w_example_buttoncontrols
@@ -194,6 +196,7 @@ cb_19 cb_19
 cb_20 cb_20
 cb_21 cb_21
 cb_22 cb_22
+st_27 st_27
 gb_1 gb_1
 gb_2 gb_2
 gb_3 gb_3
@@ -268,6 +271,7 @@ this.cb_19=create cb_19
 this.cb_20=create cb_20
 this.cb_21=create cb_21
 this.cb_22=create cb_22
+this.st_27=create st_27
 this.gb_1=create gb_1
 this.gb_2=create gb_2
 this.gb_3=create gb_3
@@ -333,10 +337,11 @@ this.Control[iCurrent+57]=this.cb_19
 this.Control[iCurrent+58]=this.cb_20
 this.Control[iCurrent+59]=this.cb_21
 this.Control[iCurrent+60]=this.cb_22
-this.Control[iCurrent+61]=this.gb_1
-this.Control[iCurrent+62]=this.gb_2
-this.Control[iCurrent+63]=this.gb_3
-this.Control[iCurrent+64]=this.gb_4
+this.Control[iCurrent+61]=this.st_27
+this.Control[iCurrent+62]=this.gb_1
+this.Control[iCurrent+63]=this.gb_2
+this.Control[iCurrent+64]=this.gb_3
+this.Control[iCurrent+65]=this.gb_4
 end on
 
 on pf_w_example_buttoncontrols.destroy
@@ -401,6 +406,7 @@ destroy(this.cb_19)
 destroy(this.cb_20)
 destroy(this.cb_21)
 destroy(this.cb_22)
+destroy(this.st_27)
 destroy(this.gb_1)
 destroy(this.gb_2)
 destroy(this.gb_3)
@@ -1227,6 +1233,23 @@ lul_color = rgb(149,136,128)
 messagebox('lul_color', lul_color)
 
 end event
+
+type st_27 from statictext within pf_w_example_buttoncontrols
+integer x = 338
+integer y = 2084
+integer width = 229
+integer height = 84
+boolean bringtotop = true
+integer textsize = -10
+integer weight = 700
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "⹏─ߴ"
+long backcolor = 255
+string text = "테스트"
+boolean focusrectangle = false
+end type
 
 type gb_1 from pf_u_groupbox within pf_w_example_buttoncontrols
 integer x = 37
