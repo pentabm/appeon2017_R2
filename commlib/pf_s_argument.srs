@@ -1,0 +1,8 @@
+HA$PBExportHeader$pf_s_argument.srs
+$PBExportComments$$$HEX33$$44c5dcad3cbab8d220001cc144bea4c2d0c51cc1200015c8f4bc2000f4bc00ada9c63cc75cb82000acc0a9c618b494b22000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_argument from structure
+	string		arg_name
+	string		arg_type
+	string		arg_exp
+end type
+

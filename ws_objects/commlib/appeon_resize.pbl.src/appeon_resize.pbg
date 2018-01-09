@@ -1,0 +1,9 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "appeon_resize.pbl" "";
+@end;
+@begin Objects 
+ "eon_cst_resize.sru" "appeon_resize.pbl";
+ "eon_cst_resizeattrib.sru" "appeon_resize.pbl";
+ "eon_cst_resizecompose.sru" "appeon_resize.pbl";
+@end;

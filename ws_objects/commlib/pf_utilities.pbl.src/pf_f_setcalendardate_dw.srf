@@ -1,0 +1,32 @@
+﻿$PBExportHeader$pf_f_setcalendardate_dw.srf
+$PBExportComments$달력컨트롤을 이용해 일자를 입력합니다. (데이터윈도우용)
+global type pf_f_setcalendardate_dw from function_object
+end type
+
+forward prototypes
+global function integer pf_f_setcalendardate_dw (readonly datawindow adw_target, readonly dwobject ado_column, long al_row)
+end prototypes
+
+global function integer pf_f_setcalendardate_dw (readonly datawindow adw_target, readonly dwobject ado_column, long al_row);// Datawindow 오브젝트에 달력을 이용해 일자를 설정합니다.
+
+if not isvalid(adw_target) then return -1
+if isnull(ado_column) or not isvalid(ado_column) then return -1
+if al_row = 0 then return -1
+
+window lw_parent
+
+lw_parent = pf_f_getparentwindow(adw_target)
+gnv_session.of_put('pf_w_calendar.parent_object', adw_target)
+gnv_session.of_put('pf_w_calendar.dwobject', ado_column)
+gnv_session.of_put('pf_w_calendar.row', al_row)
+
+if isvalid(lw_parent) then
+	open(pf_w_calendar, lw_parent)
+else
+	open(pf_w_calendar)
+end if
+
+return 1
+
+end function
+

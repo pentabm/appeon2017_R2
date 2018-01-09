@@ -1,0 +1,32 @@
+HA$PBExportHeader$pf_f_setyearmonth_dw.srf
+$PBExportComments$$$HEX20$$ecb225b8e8ceb8d264b844c7200074c7a9c674d5200044b1d4c644c7200085c725b869d5c8b2e4b2$$ENDHEX$$. ($$HEX7$$70b374c730d108c7c4b3b0c6a9c6$$ENDHEX$$)
+global type pf_f_setyearmonth_dw from function_object
+end type
+
+forward prototypes
+global function integer pf_f_setyearmonth_dw (readonly datawindow adw_target, readonly dwobject ado_column, long al_row)
+end prototypes
+
+global function integer pf_f_setyearmonth_dw (readonly datawindow adw_target, readonly dwobject ado_column, long al_row);// Datawindow $$HEX16$$24c60cbe1dc8b8d2d0c52000ecb225b844c7200074c7a9c674d52000f0c5d4c6$$ENDHEX$$(YearMonth)$$HEX7$$7cb9200024c115c869d5c8b2e4b2$$ENDHEX$$.
+
+if not isvalid(adw_target) then return -1
+if isnull(ado_column) or not isvalid(ado_column) then return -1
+if al_row = 0 then return -1
+
+window lw_parent
+
+lw_parent = pf_f_getparentwindow(adw_target)
+gnv_session.of_put('pf_w_yearmonth.parent_object', adw_target)
+gnv_session.of_put('pf_w_yearmonth.dwobject', ado_column)
+gnv_session.of_put('pf_w_yearmonth.row', al_row)
+
+if isvalid(lw_parent) then
+	open(pf_w_yearmonth, lw_parent)
+else
+	open(pf_w_yearmonth)
+end if
+
+return 1
+
+end function
+

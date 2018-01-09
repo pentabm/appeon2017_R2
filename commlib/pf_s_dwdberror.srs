@@ -1,0 +1,9 @@
+HA$PBExportHeader$pf_s_dwdberror.srs
+$PBExportComments$$$HEX25$$70b374c730d108c7c4b3b0c62000d0c5ecb7200015c8f4bc2000f4bc00ada9c62000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_dwdberror from structure
+	long		sqldbcode
+	string		sqlerrtext
+	string		sqlsyntax
+	long		errorrow
+end type
+

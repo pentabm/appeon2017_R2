@@ -1,0 +1,28 @@
+HA$PBExportHeader$pf_f_parsetoarray.srf
+$PBExportComments$$$HEX33$$38bb90c7f4c544c720006cad84bd90c7d0c5200030b57cb720000cd3f1c25cd52000c4d6200030bcf4c5d0c52000f4b244c5fcc894b2200068d518c285c7c8b2e4b2$$ENDHEX$$.
+global type pf_f_parsetoarray from function_object
+end type
+
+forward prototypes
+global function long pf_f_parsetoarray (string as_sourcestring, string as_delimiter, ref string as_outputarray[])
+end prototypes
+
+global function long pf_f_parsetoarray (string as_sourcestring, string as_delimiter, ref string as_outputarray[]);LONG lPosEnd, lPosStart = 1, ll_delimiterLen, lCounter = 1
+
+IF UpperBound(as_outputarray) > 0 THEN as_outputarray = {""}
+ll_delimiterLen = len(as_delimiter)
+
+lPosEnd = Pos (as_sourcestring, as_delimiter, 1)
+
+DO WHILE lPosEnd > 0
+     as_outputarray[lCounter] = Mid (as_sourcestring, lPosStart, lPosEnd - lPosStart)
+     lPosStart = lPosEnd + ll_delimiterLen
+     lPosEnd = Pos (as_sourcestring, as_delimiter, lPosStart)
+     lCounter++
+LOOP
+
+as_outputarray[lCounter] = Right (as_sourcestring, Len(as_sourcestring) - lPosStart + 1)
+RETURN lCounter
+
+end function
+

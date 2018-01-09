@@ -1,0 +1,25 @@
+﻿$PBExportHeader$pf_f_getparentwindow.srf
+$PBExportComments$파라미터로 넘겨받은 오브젝트의 부모 윈도우를 구합니다.
+global type pf_f_getparentwindow from function_object
+end type
+
+forward prototypes
+global function window pf_f_getparentwindow (powerobject apo_object)
+end prototypes
+
+global function window pf_f_getparentwindow (powerobject apo_object);powerobject lpo_parent
+
+if isnull(apo_object) or not isvalid(apo_object) then return lpo_parent
+
+lpo_parent = apo_object.GetParent()
+if isnull(lpo_parent) or not isvalid(lpo_parent) then return lpo_parent
+
+Do While lpo_parent.TypeOf() <> Window! and IsValid (lpo_parent)
+   lpo_parent = lpo_parent.GetParent()
+	if isnull(lpo_parent) or not isvalid(lpo_parent) then return lpo_parent
+Loop
+
+return lpo_parent
+
+end function
+

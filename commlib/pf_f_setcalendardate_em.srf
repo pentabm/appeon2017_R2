@@ -1,0 +1,27 @@
+HA$PBExportHeader$pf_f_setcalendardate_em.srf
+$PBExportComments$$$HEX20$$ecb225b8e8ceb8d264b844c7200074c7a9c674d520007cc790c77cb9200085c725b869d5c8b2e4b2$$ENDHEX$$. ($$HEX7$$d0c514b5b8d2c8b9a4c26cd0a9c6$$ENDHEX$$)
+global type pf_f_setcalendardate_em from function_object
+end type
+
+forward prototypes
+global function integer pf_f_setcalendardate_em (readonly editmask aem_target)
+end prototypes
+
+global function integer pf_f_setcalendardate_em (readonly editmask aem_target);// EditMask $$HEX23$$24c60cbe1dc8b8d2d0c52000ecb225b844c7200074c7a9c674d520007cc790c77cb9200024c115c869d5c8b2e4b2$$ENDHEX$$.
+
+if not isvalid(aem_target) then return -1
+
+window lw_parent
+
+lw_parent = pf_f_getparentwindow(aem_target)
+gnv_session.of_put('pf_w_calendar.parent_object', aem_target)
+if isvalid(lw_parent) then
+	open(pf_w_calendar, lw_parent)
+else
+	open(pf_w_calendar)
+end if
+
+return 1
+
+end function
+

@@ -1,0 +1,28 @@
+﻿$PBExportHeader$pf_f_parsetoarray.srf
+$PBExportComments$문자열을 구분자에 따라 파싱한 후 배열에 담아주는 함수입니다.
+global type pf_f_parsetoarray from function_object
+end type
+
+forward prototypes
+global function long pf_f_parsetoarray (string as_sourcestring, string as_delimiter, ref string as_outputarray[])
+end prototypes
+
+global function long pf_f_parsetoarray (string as_sourcestring, string as_delimiter, ref string as_outputarray[]);LONG lPosEnd, lPosStart = 1, ll_delimiterLen, lCounter = 1
+
+IF UpperBound(as_outputarray) > 0 THEN as_outputarray = {""}
+ll_delimiterLen = len(as_delimiter)
+
+lPosEnd = Pos (as_sourcestring, as_delimiter, 1)
+
+DO WHILE lPosEnd > 0
+     as_outputarray[lCounter] = Mid (as_sourcestring, lPosStart, lPosEnd - lPosStart)
+     lPosStart = lPosEnd + ll_delimiterLen
+     lPosEnd = Pos (as_sourcestring, as_delimiter, lPosStart)
+     lCounter++
+LOOP
+
+as_outputarray[lCounter] = Right (as_sourcestring, Len(as_sourcestring) - lPosStart + 1)
+RETURN lCounter
+
+end function
+

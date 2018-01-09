@@ -1,0 +1,22 @@
+HA$PBExportHeader$pf_f_togglekoreng.srf
+global type pf_f_togglekoreng from function_object
+end type
+
+forward prototypes
+global function integer pf_f_togglekoreng (string as_mode)
+end prototypes
+
+global function integer pf_f_togglekoreng (string as_mode);// $$HEX1$$5cd5$$ENDHEX$$,$$HEX13$$01c62000a8badcb4200004c858d6200068d518c285c7c8b2e4b2$$ENDHEX$$.
+// Arguments
+// as_mode : $$HEX5$$c0bcbdac60d520005cd5$$ENDHEX$$,$$HEX11$$01c62000a8badcb47cb9200030ae20c269d5c8b2e4b2$$ENDHEX$$.
+// $$HEX8$$5cd500aea8badcb42000c0bc58d62000$$ENDHEX$$->  'k', 'kor', 'korean', '1', '$$HEX1$$5cd5$$ENDHEX$$', '$$HEX2$$5cd500ae$$ENDHEX$$' $$HEX4$$11c92000ddd07cc7$$ENDHEX$$
+// $$HEX8$$01c638bba8badcb42000c0bc58d62000$$ENDHEX$$-> 'e', 'eng', 'english', '0', '$$HEX1$$01c6$$ENDHEX$$', '$$HEX2$$01c6b4c5$$ENDHEX$$' $$HEX4$$11c92000ddd07cc7$$ENDHEX$$
+// Return
+// 0 = $$HEX2$$e4c228d3$$ENDHEX$$
+// 1 = $$HEX2$$31c1f5ac$$ENDHEX$$
+
+if not isvalid(gnv_appmgr.iw_mainframe) then return -1
+return gnv_extfunc.of_toggle_koreng(gnv_appmgr.iw_mainframe, as_mode)
+
+end function
+

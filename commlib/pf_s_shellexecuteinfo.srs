@@ -1,0 +1,20 @@
+HA$PBExportHeader$pf_s_shellexecuteinfo.srs
+$PBExportComments$ShellExecute $$HEX3$$78c680bd2000$$ENDHEX$$API $$HEX17$$38d69ccd20000cd37cb7f8bb30d1a9c62000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_shellexecuteinfo from structure
+	long		cbSize
+	long		fMask
+	long		hwnd
+	string		lpVerb
+	string		lpFile
+	string		lpParameters
+	string		lpDirectory
+	long		nShow
+	long		hInstApp
+	long		lpIDList
+	string		lpClass
+	long		hkeyClass
+	long		dwHotKey
+	long		hIcon
+	long		hProcess
+end type
+

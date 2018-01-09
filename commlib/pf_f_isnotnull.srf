@@ -1,0 +1,28 @@
+HA$PBExportHeader$pf_f_isnotnull.srf
+global type pf_f_isnotnull from function_object
+end type
+
+forward prototypes
+global function boolean pf_f_isnotnull (readonly any aa_checkvars[])
+end prototypes
+
+global function boolean pf_f_isnotnull (readonly any aa_checkvars[]);// APPEON $$HEX5$$58d6bdacd0c51cc12000$$ENDHEX$$IF $$HEX3$$6cad38bb2000$$ENDHEX$$NULL$$HEX6$$b4cc6cd0a9c6200068d518c2$$ENDHEX$$
+// $$HEX6$$30bcf4c5c0bc18c2d0c52000$$ENDHEX$$NULL$$HEX10$$12ac74c72000ecd368d51cb42000bdacb0c62000$$ENDHEX$$False $$HEX3$$acb934d128b4$$ENDHEX$$.
+// NULL$$HEX14$$12ac74c72000ecd368d518b4c0c920004ac540c72000bdacb0c62000$$ENDHEX$$True $$HEX3$$acb934d128b4$$ENDHEX$$.
+// $$HEX1$$08c6$$ENDHEX$$) PB $$HEX3$$d0c68cc1a4c2$$ENDHEX$$: if (ls_a = ls_b) then
+// APPEON $$HEX14$$acc0a9c6dcc2200044c598b798ccfcb720008cc1a4c22000c0bcbdac$$ENDHEX$$
+// if(ls_a = ls_b) and pf_f_isnotnull({ls_a, ls_b}) then
+
+integer li_varcnt, i
+
+li_varcnt = upperbound(aa_checkvars)
+for i = 1 to li_varcnt
+	if isnull(aa_checkvars[i]) then
+		return false
+	end if
+next
+
+return true
+
+end function
+

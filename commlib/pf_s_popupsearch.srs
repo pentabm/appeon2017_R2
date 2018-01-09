@@ -1,0 +1,19 @@
+HA$PBExportHeader$pf_s_popupsearch.srs
+$PBExportComments$$$HEX31$$f5acb5d120001dd3c5c5200008c7c4b3b0c6d0c5200015c8f4bc200004c8a1c1a9c620000cd37cb7f8bb30d12000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_popupsearch from structure
+	transaction		transaction_object
+	string		window_title
+	string		condition_dwobject
+	string		condition_defaultvalues
+	string		list_dwobject
+	string		list_arguments
+	boolean		auto_retrieve
+	string		getitem_column[]
+	string		column_value[]
+	boolean		data_selected
+	long		xpos
+	long		ypos
+	long		width
+	long		height
+end type
+

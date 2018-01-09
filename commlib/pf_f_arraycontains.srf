@@ -1,0 +1,26 @@
+HA$PBExportHeader$pf_f_arraycontains.srf
+$PBExportComments$$$HEX26$$30bcf4c52000b4b0a9c6200011c920007cc758ce58d594b220006dd5a9ba74c7200088c794b2c0c9200055d678c769d5c8b2e4b2$$ENDHEX$$
+global type pf_f_arraycontains from function_object
+end type
+
+forward prototypes
+global function boolean pf_f_arraycontains (readonly string as_array[], readonly string as_searchkey)
+end prototypes
+
+global function boolean pf_f_arraycontains (readonly string as_array[], readonly string as_searchkey);// $$HEX26$$30bcf4c52000b4b0a9c6200011c920007cc758ce58d594b220006dd5a9ba74c7200088c794b2c0c9200055d678c769d5c8b2e4b2$$ENDHEX$$.
+// True: $$HEX4$$30bcf4c5d0c52000$$ENDHEX$$searchkey $$HEX2$$88c74cc7$$ENDHEX$$
+// False : $$HEX4$$30bcf4c5d0c52000$$ENDHEX$$searchkey $$HEX2$$c6c54cc7$$ENDHEX$$
+
+long ll_arraycnt, i
+
+ll_arraycnt = upperbound(as_array)
+for i = 1 to ll_arraycnt
+	if as_array[i] = as_searchkey then
+		return true
+	end if
+next
+
+return false
+
+end function
+

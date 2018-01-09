@@ -1,0 +1,21 @@
+HA$PBExportHeader$pf_f_getcurrentdir.srf
+$PBExportComments$$$HEX6$$0cd3ccc64cbe54b340c62000$$ENDHEX$$Appeon$$HEX23$$58d6bdac44c720006cad84bd74d51cc1200004d6acc72000f4d354b304c758ce7cb920006cad74d535c6c8b2e4b2$$ENDHEX$$.
+global type pf_f_getcurrentdir from function_object
+end type
+
+forward prototypes
+global function string pf_f_getcurrentdir ()
+end prototypes
+
+global function string pf_f_getcurrentdir ();string ls_path
+
+IF appeongetclienttype() = 'PB' THEN
+	ls_path = getCurrentDirectory()
+ELSE
+	ls_path = AppeonGetCacheDir()
+END IF
+
+Return ls_path
+
+end function
+

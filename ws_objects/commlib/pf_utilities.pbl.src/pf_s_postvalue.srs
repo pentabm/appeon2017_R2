@@ -1,0 +1,9 @@
+﻿$PBExportHeader$pf_s_postvalue.srs
+$PBExportComments$HTTP 파일 송 및 수신 파라미터 용도로 사용되는 스트럭처 입니다.
+global type pf_s_postvalue from structure
+	string		param
+	string		data
+	string		rename
+	long		param_type
+end type
+

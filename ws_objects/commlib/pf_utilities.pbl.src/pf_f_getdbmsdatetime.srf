@@ -1,0 +1,39 @@
+﻿$PBExportHeader$pf_f_getdbmsdatetime.srf
+$PBExportComments$SQLCA DBMS 종류에 따라 데이터베이스 일시를 구합니다.
+global type pf_f_getdbmsdatetime from function_object
+end type
+
+forward prototypes
+global function datetime pf_f_getdbmsdatetime ()
+end prototypes
+
+global function datetime pf_f_getdbmsdatetime ();// SQLCA에 연결된 DB 종류에 따라 DBMS 일시를 리턴한다
+
+datetime ldtm_now
+string ls_dbms
+
+ls_dbms = pf_f_getdbmstype(sqlca)
+choose case ls_dbms
+	case 'Sybase'
+		select getdate() into :ldtm_now from dummy;
+	case 'Informix'
+		select today into :ldtm_now from Systables where Tabid = 1;
+	case 'Oracle'
+		select sysdate into :ldtm_now from dual;
+	case 'SQLServer'
+		//select getdate() into :ldtm_now;
+		declare getdate_cursor dynamic cursor for sqlsa ;
+		prepare sqlsa from "select getdate()" ;
+		open dynamic getdate_cursor ;
+		fetch getdate_cursor into :ldtm_now ;
+		close getdate_cursor ;		
+
+	case else
+		// Unknown DBType 은 Local DateTime 사용
+		ldtm_now = datetime(today(), now())
+end choose
+
+return ldtm_now
+
+end function
+

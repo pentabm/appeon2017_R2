@@ -1,0 +1,9 @@
+﻿$PBExportHeader$pf_s_dwdberror.srs
+$PBExportComments$데이터윈도우 에러 정보 보관용 스트럭처 입니다.
+global type pf_s_dwdberror from structure
+	long		sqldbcode
+	string		sqlerrtext
+	string		sqlsyntax
+	long		errorrow
+end type
+

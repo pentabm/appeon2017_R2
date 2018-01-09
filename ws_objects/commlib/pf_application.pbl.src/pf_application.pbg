@@ -1,0 +1,22 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "pf_application.pbl" "";
+@end;
+@begin Objects 
+ "powerframe.sra" "pf_application.pbl";
+ "pf_d_appconfig.srd" "pf_application.pbl";
+ "p_powerframe.srj" "pf_application.pbl";
+ "pf_m_empty.srm" "pf_application.pbl";
+ "pf_m_empty_shortcutkey.srm" "pf_application.pbl";
+ "pf_n_appconfig.sru" "pf_application.pbl";
+ "pf_n_appmanager.sru" "pf_application.pbl";
+ "pf_n_appsession.sru" "pf_application.pbl";
+ "pf_n_nonvisualobject.sru" "pf_application.pbl";
+ "pf_u_userobject.sru" "pf_application.pbl";
+ "pf_w_child.srw" "pf_application.pbl";
+ "pf_w_frame.srw" "pf_application.pbl";
+ "pf_w_popup.srw" "pf_application.pbl";
+ "pf_w_response.srw" "pf_application.pbl";
+ "pf_w_sheet.srw" "pf_application.pbl";
+ "pf_w_window.srw" "pf_application.pbl";
+@end;

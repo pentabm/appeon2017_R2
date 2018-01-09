@@ -1,0 +1,9 @@
+﻿$PBExportHeader$pf_s_trackmouseevent.srs
+$PBExportComments$Track Mouse Pointer 외부 DLL 함수 호출용 스트럭처 입니다.
+global type pf_s_trackmouseevent from structure
+	unsignedlong		cbsize
+	unsignedlong		dwflag
+	unsignedlong		hwndtrack
+	unsignedlong		dwhovertime
+end type
+

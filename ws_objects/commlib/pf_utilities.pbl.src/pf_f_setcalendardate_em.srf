@@ -1,0 +1,27 @@
+﻿$PBExportHeader$pf_f_setcalendardate_em.srf
+$PBExportComments$달력컨트롤을 이용해 일자를 입력합니다. (에디트마스크용)
+global type pf_f_setcalendardate_em from function_object
+end type
+
+forward prototypes
+global function integer pf_f_setcalendardate_em (readonly editmask aem_target)
+end prototypes
+
+global function integer pf_f_setcalendardate_em (readonly editmask aem_target);// EditMask 오브젝트에 달력을 이용해 일자를 설정합니다.
+
+if not isvalid(aem_target) then return -1
+
+window lw_parent
+
+lw_parent = pf_f_getparentwindow(aem_target)
+gnv_session.of_put('pf_w_calendar.parent_object', aem_target)
+if isvalid(lw_parent) then
+	open(pf_w_calendar, lw_parent)
+else
+	open(pf_w_calendar)
+end if
+
+return 1
+
+end function
+

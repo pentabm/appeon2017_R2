@@ -1,0 +1,83 @@
+﻿$PBExportHeader$pf_d_database_info_ora_03.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=232 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(30) updatewhereclause=yes name=owner dbname="dba_tab_columns.owner" )
+ column=(type=char(30) updatewhereclause=yes name=table_name dbname="dba_tab_columns.table_name" )
+ column=(type=char(4000) updatewhereclause=yes name=table_comments dbname="dba_tab_comments.table_comments" )
+ column=(type=number updatewhereclause=yes name=column_id dbname="dba_tab_columns.column_id" )
+ column=(type=char(30) updatewhereclause=yes name=column_name dbname="dba_tab_columns.column_name" )
+ column=(type=char(1) updatewhereclause=yes name=nullable dbname="dba_tab_columns.nullable" )
+ column=(type=char(106) updatewhereclause=yes name=data_type dbname="dba_tab_columns.data_type" )
+ column=(type=number updatewhereclause=yes name=data_length dbname="dba_tab_columns.data_length" )
+ column=(type=char(4000) updatewhereclause=yes name=comments dbname="dba_col_comments.comments" )
+ column=(type=number updatewhereclause=yes name=d_position dbname="dba_tab_columns.position" )
+ retrieve="select		a.owner,	
+			a.table_name, 
+			c.comments as table_comments, 
+			a.column_id, 
+			a.column_name, 
+			a.nullable, 
+			a.data_type, 
+			a.data_length, 
+			b.comments,
+			d.position 
+from		dba_tab_columns a,
+			dba_col_comments b,
+			dba_tab_comments c,
+			(
+			select		s02.constraint_name,
+						s02.column_name,
+						s02.position
+			from		dba_constraints s01,
+						dba_cons_columns s02
+			where	s01.owner = :as_owner
+			and		s01.table_name = :as_table_name
+			and		s01.constraint_type = 'P'
+			and		s02.owner = s01.owner
+			and		s02.constraint_name = s01.constraint_name
+			and		s02.table_name = s01.table_name
+			) d
+where	a.owner = :as_owner
+and		a.table_name = :as_table_name
+and		b.owner = a.owner
+and		b.table_name = a.table_name
+and		b.column_name = a.column_name
+and		c.owner = a.owner
+and		c.table_name = a.table_name
+and		d.column_name(+) = a.column_name
+order by	a.column_id" arguments=(("as_owner", string),("as_table_name", string)) )
+text(band=header alignment="2" text="Id" border="0" color="33554432" x="14" y="152" height="72" width="160" html.valueishtml="0"  name=user_tab_columns_column_id_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Column Name" border="0" color="33554432" x="187" y="152" height="72" width="992" html.valueishtml="0"  name=user_tab_columns_column_name_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Nullable" border="0" color="33554432" x="1193" y="152" height="72" width="210" html.valueishtml="0"  name=user_tab_columns_nullable_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="OWNER :" border="0" color="33554432" x="9" y="44" height="72" width="306" html.valueishtml="0"  name=t_1 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=1 alignment="0" tabsequence=32766 border="5" color="33554432" x="338" y="44" height="72" width="512" format="[general]" html.valueishtml="0"  name=owner visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="TABLE NAME :" border="0" color="33554432" x="873" y="44" height="72" width="421" html.valueishtml="0"  name=user_tab_columns_table_name_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="PK" border="0" color="33554432" x="1417" y="152" height="72" width="110" html.valueishtml="0"  name=t_2 visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Data Type" border="0" color="33554432" x="1541" y="152" height="72" width="416" html.valueishtml="0"  name=user_tab_columns_data_type_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Length" border="0" color="33554432" x="1970" y="152" height="72" width="229" html.valueishtml="0"  name=user_tab_columns_data_length_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Comments" border="0" color="33554432" x="2213" y="152" height="72" width="1696" html.valueishtml="0"  name=user_col_comments_comments_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="33554432" x="14" y="8" height="76" width="160" format="[general]" html.valueishtml="0"  name=column_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="33554432" x="187" y="8" height="76" width="992" format="[general]" html.valueishtml="0"  name=column_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="33554432" x="1193" y="8" height="76" width="210" format="[general]" html.valueishtml="0"  name=nullable visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="2" tabsequence=32766 border="0" color="33554432" x="1417" y="8" height="76" width="110" format="[general]" html.valueishtml="0"  name=d_position visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="33554432" x="1541" y="8" height="76" width="416" format="[general]" html.valueishtml="0"  name=data_type visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="33554432" x="1970" y="8" height="76" width="229" format="[general]" html.valueishtml="0"  name=data_length visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="33554432" x="2213" y="8" height="76" width="2999" format="[general]" html.valueishtml="0"  name=comments visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=2 alignment="0" tabsequence=32766 border="5" color="33554432" x="1317" y="44" height="72" width="896" format="[general]" html.valueishtml="0"  name=table_name visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+text(band=header alignment="1" text="COMMENTS :" border="0" color="33554432" x="2231" y="44" height="72" width="398" html.valueishtml="0"  name=user_tab_comments_table_comments_t visible="1"  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+column(band=header id=3 alignment="0" tabsequence=32766 border="5" color="33554432" x="2651" y="44" height="72" width="1262" format="[general]" html.valueishtml="0"  name=table_comments visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="Tahoma" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="0" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

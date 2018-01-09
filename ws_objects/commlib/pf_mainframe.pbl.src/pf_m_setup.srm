@@ -1,0 +1,174 @@
+﻿$PBExportHeader$pf_m_setup.srm
+forward
+global type pf_m_setup from menu
+end type
+type m_relogin from menu within pf_m_setup
+end type
+type m_chgcomp from menu within pf_m_setup
+end type
+type m_chgpwd from menu within pf_m_setup
+end type
+global type pf_m_setup from menu
+m_relogin m_relogin
+m_chgcomp m_chgcomp
+m_chgpwd m_chgpwd
+end type
+end forward
+
+global type pf_m_setup from menu
+m_relogin m_relogin
+m_chgcomp m_chgcomp
+m_chgpwd m_chgpwd
+end type
+global pf_m_setup pf_m_setup
+
+type variables
+userobject iuo_parent
+string is_menu_id
+string is_pgm_id
+string is_pgm_name
+
+end variables
+
+forward prototypes
+public subroutine of_setparent (userobject auo_parent, string as_menu_id, string as_pgm_id, string as_pgm_name)
+end prototypes
+
+public subroutine of_setparent (userobject auo_parent, string as_menu_id, string as_pgm_id, string as_pgm_name);is_menu_id = as_menu_id
+is_pgm_id = as_pgm_id
+is_pgm_name = as_pgm_name
+
+iuo_parent = auo_parent
+
+end subroutine
+
+on pf_m_setup.create
+pf_m_setup=this
+call super::create
+this.text = "pf_m_setup"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_relogin=create m_relogin
+this.m_chgcomp=create m_chgcomp
+this.m_chgpwd=create m_chgpwd
+this.Item[UpperBound(this.Item)+1]=this.m_relogin
+this.Item[UpperBound(this.Item)+1]=this.m_chgcomp
+this.Item[UpperBound(this.Item)+1]=this.m_chgpwd
+end on
+
+on pf_m_setup.destroy
+call super::destroy
+destroy(this.m_relogin)
+destroy(this.m_chgcomp)
+destroy(this.m_chgpwd)
+end on
+
+type m_relogin from menu within pf_m_setup
+end type
+
+on m_relogin.create
+call super::create
+this.text = "사용자 변경"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_relogin.destroy
+call super::destroy
+end on
+
+event clicked;// MainFrame 윈도우에 해당 펑션을 추가하고 적절한 로직을 작성합니다
+//parentwindow.dynamic of_setupmenu_relogin()
+
+end event
+
+type m_chgcomp from menu within pf_m_setup
+end type
+
+event clicked;// MainFrame 윈도우에 해당 펑션을 추가하고 적절한 로직을 작성합니다
+//parentwindow.dynamic of_setupmenu_chg_comp()
+
+end event
+
+on m_chgcomp.create
+call super::create
+this.text = "회사 변경"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_chgcomp.destroy
+call super::destroy
+end on
+
+type m_chgpwd from menu within pf_m_setup
+end type
+
+on m_chgpwd.create
+call super::create
+this.text = "비밀번호 변경"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_chgpwd.destroy
+call super::destroy
+end on
+
+event clicked;// MainFrame 윈도우에 해당 펑션을 추가하고 적절한 로직을 작성합니다
+//parentwindow.dynamic of_setupmenu_chg_pwd()
+
+end event
+

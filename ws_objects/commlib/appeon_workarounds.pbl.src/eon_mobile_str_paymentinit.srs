@@ -1,0 +1,5 @@
+﻿$PBExportHeader$eon_mobile_str_paymentinit.srs
+global type eon_mobile_str_paymentinit from structure
+	string		s_clientid
+end type
+

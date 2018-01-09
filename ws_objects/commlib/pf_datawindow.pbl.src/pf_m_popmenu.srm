@@ -1,0 +1,513 @@
+﻿$PBExportHeader$pf_m_popmenu.srm
+$PBExportComments$DataWindow PopMenu
+forward
+global type pf_m_popmenu from menu
+end type
+type m_search from menu within pf_m_popmenu
+end type
+type m_- from menu within pf_m_popmenu
+end type
+type m_datafilter from menu within pf_m_popmenu
+end type
+type m_filter from menu within pf_m_popmenu
+end type
+type m_-0 from menu within pf_m_popmenu
+end type
+type m_datasort from menu within pf_m_popmenu
+end type
+type m_-1 from menu within pf_m_popmenu
+end type
+type m_dataprint from menu within pf_m_popmenu
+end type
+type m_-2 from menu within pf_m_popmenu
+end type
+type m_dataconvert from menu within pf_m_popmenu
+end type
+type m_datawindowinfo from menu within pf_m_popmenu
+end type
+global type pf_m_popmenu from menu
+m_search m_search
+m_- m_-
+m_datafilter m_datafilter
+m_filter m_filter
+m_-0 m_-0
+m_datasort m_datasort
+m_-1 m_-1
+m_dataprint m_dataprint
+m_-2 m_-2
+m_dataconvert m_dataconvert
+m_datawindowinfo m_datawindowinfo
+end type
+end forward
+
+global type pf_m_popmenu from menu
+m_search m_search
+m_- m_-
+m_datafilter m_datafilter
+m_filter m_filter
+m_-0 m_-0
+m_datasort m_datasort
+m_-1 m_-1
+m_dataprint m_dataprint
+m_-2 m_-2
+m_dataconvert m_dataconvert
+m_datawindowinfo m_datawindowinfo
+end type
+global pf_m_popmenu pf_m_popmenu
+
+type variables
+String icColObject, icColLabel, icProcess, icTitle
+DataWindow idw_target
+DataStore idsDupm
+//usrobj_dump idsDupm
+
+end variables
+
+forward prototypes
+public subroutine uwf_fileset (string cfilename, string cpathname, string cfiletype)
+public subroutine uwf_shell (string cpathname)
+end prototypes
+
+public subroutine uwf_fileset (string cfilename, string cpathname, string cfiletype);Long nMgrReturn
+
+nMgrReturn = GetFileSaveName("File Save", cPathName, cFileName, cPathName, cFileType)
+// 0 if the user clicks the Cancel button or Windows cancels the display, 
+// and -1 if an error occurs. 
+// If any argument's value is NULL, GetFileSaveName returns NULL.
+IF nMgrReturn < 1 THEN RETURN 
+
+IF FileExists(cFileName) THEN
+	nMgrReturn = Messagebox ('도움말', '동일한 이름의 파일이 존재합니다. ~r~n 덮어쓸까요?', Question!, YesNo!, 2)
+	IF nMgrReturn = 2 THEN RETURN
+END IF
+
+end subroutine
+
+public subroutine uwf_shell (string cpathname);//String cNull
+//SetNull(cNull)
+//gnv_extdll.ShellExecuteA(0, cNull, cPathName, cNull, cNull, 5)
+end subroutine
+
+on pf_m_popmenu.create
+pf_m_popmenu=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_search=create m_search
+this.m_-=create m_-
+this.m_datafilter=create m_datafilter
+this.m_filter=create m_filter
+this.m_-0=create m_-0
+this.m_datasort=create m_datasort
+this.m_-1=create m_-1
+this.m_dataprint=create m_dataprint
+this.m_-2=create m_-2
+this.m_dataconvert=create m_dataconvert
+this.m_datawindowinfo=create m_datawindowinfo
+this.Item[UpperBound(this.Item)+1]=this.m_search
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_datafilter
+this.Item[UpperBound(this.Item)+1]=this.m_filter
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_datasort
+this.Item[UpperBound(this.Item)+1]=this.m_-1
+this.Item[UpperBound(this.Item)+1]=this.m_dataprint
+this.Item[UpperBound(this.Item)+1]=this.m_-2
+this.Item[UpperBound(this.Item)+1]=this.m_dataconvert
+this.Item[UpperBound(this.Item)+1]=this.m_datawindowinfo
+end on
+
+on pf_m_popmenu.destroy
+call super::destroy
+destroy(this.m_search)
+destroy(this.m_-)
+destroy(this.m_datafilter)
+destroy(this.m_filter)
+destroy(this.m_-0)
+destroy(this.m_datasort)
+destroy(this.m_-1)
+destroy(this.m_dataprint)
+destroy(this.m_-2)
+destroy(this.m_dataconvert)
+destroy(this.m_datawindowinfo)
+end on
+
+event clicked;
+end event
+
+type m_search from menu within pf_m_popmenu
+end type
+
+on m_search.create
+call super::create
+this.text = "Data Search"
+this.microhelp = "선택한 Row이후 부터 검색처리"
+this.toolbaritemname = "search!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_search.destroy
+call super::destroy
+end on
+
+event clicked;if not isvalid(idw_Target) then return
+
+choose case idw_Target.dynamic of_getpresentationstyle()
+	case 'Grid', 'Tabular'
+		openwithparm(pf_w_popmenusearch, idw_target)
+	case else
+		messagebox('알림', '해당 데이터윈도우 양식에서 사용할 수 없는 기능입니다.')
+end choose
+
+end event
+
+type m_- from menu within pf_m_popmenu
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_datafilter from menu within pf_m_popmenu
+end type
+
+on m_datafilter.create
+call super::create
+this.text = "Data Filter"
+this.toolbaritemname = "cut!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_datafilter.destroy
+call super::destroy
+end on
+
+event clicked;if not isvalid(idw_target) then return
+
+choose case idw_target.dynamic of_getpresentationstyle()
+	case 'Grid', 'Tabular'
+		OpenWithParm(pf_w_popmenufilter, idw_target)
+	case else
+		messagebox('알림', '해당 데이터윈도우 양식에서 사용할 수 없는 기능입니다.')
+end choose
+
+end event
+
+type m_filter from menu within pf_m_popmenu
+end type
+
+on m_filter.create
+call super::create
+this.text = "Filter 해제"
+this.toolbaritemname = "redo!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_filter.destroy
+call super::destroy
+end on
+
+event clicked;idw_target.SetFilter('')
+idw_target.Filter()
+
+end event
+
+type m_-0 from menu within pf_m_popmenu
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_datasort from menu within pf_m_popmenu
+end type
+
+on m_datasort.create
+call super::create
+this.text = "Data Sort"
+this.toolbaritemname = "sort!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_datasort.destroy
+call super::destroy
+end on
+
+event clicked;if not isvalid(idw_target) then return
+
+choose case idw_target.dynamic of_getpresentationstyle()
+	case 'Grid', 'Tabular'
+		OpenWithParm(pf_w_popmenusort, idw_target)
+	case else
+		messagebox('알림', '해당 데이터윈도우 양식에서 사용할 수 없는 기능입니다.')
+end choose
+
+end event
+
+type m_-1 from menu within pf_m_popmenu
+end type
+
+on m_-1.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-1.destroy
+call super::destroy
+end on
+
+type m_dataprint from menu within pf_m_popmenu
+end type
+
+on m_dataprint.create
+call super::create
+this.text = "Data Print"
+this.toolbaritemname = "print!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_dataprint.destroy
+call super::destroy
+end on
+
+event clicked;// 출력 미리보기 창 오픈
+openwithparm(pf_w_printpreview, idw_target)
+
+end event
+
+type m_-2 from menu within pf_m_popmenu
+end type
+
+on m_-2.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-2.destroy
+call super::destroy
+end on
+
+type m_dataconvert from menu within pf_m_popmenu
+end type
+
+on m_dataconvert.create
+call super::create
+this.text = "Excel 변환"
+this.toolbaritemname = "custom043!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_dataconvert.destroy
+call super::destroy
+end on
+
+event clicked;pf_n_saveas lnv_save
+string ls_filename
+
+ls_filename = lnv_save.of_saveas(idw_target, true)
+
+end event
+
+type m_datawindowinfo from menu within pf_m_popmenu
+end type
+
+on m_datawindowinfo.create
+call super::create
+this.visible = false
+this.text = "Datawindow Info"
+this.toolbaritemname = "Information!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_datawindowinfo.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(idw_target) then
+	gnv_session.of_put("pf_w_dwinformation.datawindowref", idw_target)
+	open(pf_w_dwinformation)
+end if
+
+end event
+

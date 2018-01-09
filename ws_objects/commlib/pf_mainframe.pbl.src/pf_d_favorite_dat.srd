@@ -1,0 +1,56 @@
+﻿$PBExportHeader$pf_d_favorite_dat.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=92 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes key=yes name=sys_id dbname="pf_user_favor.sys_id" dbalias=".sys_id" )
+ column=(type=char(12) update=yes updatewhereclause=yes key=yes name=user_id dbname="pf_user_favor.user_id" dbalias=".user_id" )
+ column=(type=char(16) update=yes updatewhereclause=yes key=yes name=menu_id dbname="pf_user_favor.menu_id" dbalias=".menu_id" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=favor_name dbname="pf_user_favor.favor_name" dbalias=".favor_name" )
+ column=(type=char(300) update=yes updatewhereclause=yes name=favor_desc dbname="pf_user_favor.favor_desc" dbalias=".favor_desc" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=pgm_kind_code dbname="pf_user_favor.pgm_kind_code" dbalias=".pgm_kind_code" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=parent_menu dbname="pf_user_favor.parent_menu" dbalias=".parent_menu" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=sort_order dbname="pf_user_favor.sort_order" dbalias=".sort_order" )
+ retrieve="  select pf_user_favor.sys_id,
+         pf_user_favor.user_id,
+         pf_user_favor.menu_id,
+         pf_user_favor.favor_name,
+         pf_user_favor.favor_desc,
+         pf_user_favor.pgm_kind_code,
+         pf_user_favor.parent_menu,
+         pf_user_favor.sort_order
+    from pf_user_favor
+   where ( pf_user_favor.sys_id = :as_sys_id ) and
+         ( pf_user_favor.user_id = :as_user_id ) and
+		( pf_user_favor.parent_menu = :as_parent_menu )
+order by	pf_user_favor.parent_menu asc,
+			pf_user_favor.sort_order asc
+" update="pf_user_favor" updatewhere=0 updatekeyinplace=yes arguments=(("as_sys_id", string),("as_user_id", string),("as_parent_menu", string)) )
+text(band=header alignment="2" text="Sys Id" border="0" color="33554432" x="14" y="8" height="72" width="416" html.valueishtml="0"  name=sys_id_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="User Id" border="0" color="33554432" x="443" y="8" height="72" width="416" html.valueishtml="0"  name=user_id_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Menu Id" border="0" color="33554432" x="873" y="8" height="72" width="416" html.valueishtml="0"  name=menu_id_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Favor Name" border="0" color="33554432" x="1303" y="8" height="72" width="672" html.valueishtml="0"  name=favor_name_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Favor Desc" border="0" color="33554432" x="1989" y="8" height="72" width="1015" html.valueishtml="0"  name=favor_desc_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Pgm Kind Code" border="0" color="33554432" x="3017" y="8" height="72" width="498" html.valueishtml="0"  name=pgm_kind_code_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Parent Pgm" border="0" color="33554432" x="3529" y="8" height="72" width="375" html.valueishtml="0"  name=parent_menu_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=header alignment="2" text="Sort Order" border="0" color="33554432" x="3918" y="8" height="72" width="343" html.valueishtml="0"  name=sort_order_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=1 alignment="0" tabsequence=10 border="0" color="33554432" x="14" y="8" height="72" width="416" format="[general]" html.valueishtml="0"  name=sys_id visible="1" edit.limit=12 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=2 alignment="0" tabsequence=20 border="0" color="33554432" x="443" y="8" height="72" width="416" format="[general]" html.valueishtml="0"  name=user_id visible="1" edit.limit=12 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=30 border="0" color="33554432" x="873" y="8" height="72" width="416" format="[general]" html.valueishtml="0"  name=menu_id visible="1" edit.limit=7 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=40 border="0" color="33554432" x="1303" y="8" height="72" width="672" format="[general]" html.valueishtml="0"  name=favor_name visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=5 alignment="0" tabsequence=50 border="0" color="33554432" x="1989" y="8" height="72" width="1015" format="[general]" html.valueishtml="0"  name=favor_desc visible="1" edit.limit=300 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="0" tabsequence=60 border="0" color="33554432" x="3017" y="8" height="72" width="498" format="[general]" html.valueishtml="0"  name=pgm_kind_code visible="1" edit.limit=1 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="0" tabsequence=70 border="0" color="33554432" x="3529" y="8" height="72" width="375" format="[general]" html.valueishtml="0"  name=parent_menu visible="1" edit.limit=7 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="1" tabsequence=80 border="0" color="33554432" x="3918" y="8" height="72" width="343" format="[General]" html.valueishtml="0"  name=sort_order visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

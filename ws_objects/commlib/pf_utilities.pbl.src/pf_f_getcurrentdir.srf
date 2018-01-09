@@ -1,0 +1,21 @@
+﻿$PBExportHeader$pf_f_getcurrentdir.srf
+$PBExportComments$파워빌더와 Appeon환경을 구분해서 현재 폴더위치를 구해옵니다.
+global type pf_f_getcurrentdir from function_object
+end type
+
+forward prototypes
+global function string pf_f_getcurrentdir ()
+end prototypes
+
+global function string pf_f_getcurrentdir ();string ls_path
+
+IF appeongetclienttype() = 'PB' THEN
+	ls_path = getCurrentDirectory()
+ELSE
+	ls_path = AppeonGetCacheDir()
+END IF
+
+Return ls_path
+
+end function
+

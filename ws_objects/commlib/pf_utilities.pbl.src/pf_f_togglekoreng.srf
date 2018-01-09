@@ -1,0 +1,22 @@
+﻿$PBExportHeader$pf_f_togglekoreng.srf
+global type pf_f_togglekoreng from function_object
+end type
+
+forward prototypes
+global function integer pf_f_togglekoreng (string as_mode)
+end prototypes
+
+global function integer pf_f_togglekoreng (string as_mode);// 한,영 모드 전환 함수입니다.
+// Arguments
+// as_mode : 변경할 한,영 모드를 기술합니다.
+// 한글모드 변환 ->  'k', 'kor', 'korean', '1', '한', '한글' 중 택일
+// 영문모드 변환 -> 'e', 'eng', 'english', '0', '영', '영어' 중 택일
+// Return
+// 0 = 실패
+// 1 = 성공
+
+if not isvalid(gnv_appmgr.iw_mainframe) then return -1
+return gnv_extfunc.of_toggle_koreng(gnv_appmgr.iw_mainframe, as_mode)
+
+end function
+

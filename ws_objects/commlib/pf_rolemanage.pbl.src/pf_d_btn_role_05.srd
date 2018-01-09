@@ -1,0 +1,107 @@
+﻿$PBExportHeader$pf_d_btn_role_05.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 selected.mouse=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=88 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes key=yes name=sys_id dbname="pf_role_pgm.sys_id" )
+ column=(type=char(7) updatewhereclause=yes key=yes name=role_no dbname="pf_role_pgm.role_no" )
+ column=(type=char(16) updatewhereclause=yes key=yes name=menu_id dbname="pf_role_pgm.menu_id" )
+ column=(type=char(100) updatewhereclause=yes name=role_name dbname="pf_role_mst.role_name" )
+ column=(type=char(300) updatewhereclause=yes name=role_desc dbname="pf_role_mst.role_desc" )
+ column=(type=char(1) updatewhereclause=yes name=pgm_kind_code dbname="pf_pgm_mst.pgm_kind_code" )
+ column=(type=char(8) updatewhereclause=yes name=io_type dbname="pf_pgm_mst.io_type" values="	/입력	I/조회	V/출력	R/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=valid_dt_yn dbname="pf_role_pgm.valid_dt_yn" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=valid_dt_from dbname="pf_role_pgm.valid_dt_from" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=valid_dt_to dbname="pf_role_pgm.valid_dt_to" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=comm_btn_auth_yn dbname="pf_role_pgm.comm_btn_auth_yn" initial="N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=retrieve_auth_yn dbname="pf_role_pgm.retrieve_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=input_auth_yn dbname="pf_role_pgm.input_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=delete_auth_yn dbname="pf_role_pgm.delete_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=update_auth_yn dbname="pf_role_pgm.update_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=print_auth_yn dbname="pf_role_pgm.print_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=execute_auth_yn dbname="pf_role_pgm.execute_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=cancel_auth_yn dbname="pf_role_pgm.cancel_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=excel_auth_yn dbname="pf_role_pgm.excel_auth_yn" initial="N" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ext1_auth_yn dbname="pf_role_pgm.ext1_auth_yn" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ext2_auth_yn dbname="pf_role_pgm.ext2_auth_yn" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ext3_auth_yn dbname="pf_role_pgm.ext3_auth_yn" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ext4_auth_yn dbname="pf_role_pgm.ext4_auth_yn" values="	Y/	N" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=indiv_btn_auth_yn dbname="pf_role_pgm.indiv_btn_auth_yn" initial="N" )
+ retrieve="select		a.sys_id,
+			a.role_no,
+			a.menu_id,
+			b.role_name,
+			b.role_desc,
+			c.pgm_kind_code,
+			c.io_type,
+			a.valid_dt_yn,
+			a.valid_dt_from,
+			a.valid_dt_to,
+			a.comm_btn_auth_yn,
+			a.retrieve_auth_yn,
+			a.input_auth_yn,
+			a.delete_auth_yn,
+			a.update_auth_yn,
+			a.print_auth_yn,
+			a.execute_auth_yn,
+			a.cancel_auth_yn,
+			a.excel_auth_yn,
+			a.ext1_auth_yn,
+			a.ext2_auth_yn,
+			a.ext3_auth_yn,
+			a.ext4_auth_yn,
+			a.indiv_btn_auth_yn
+from		pf_role_pgm a,
+			pf_role_mst b,
+			pf_pgm_mst c
+where	a.sys_id = :as_sys_id
+and		a.menu_id = :as_menu_id
+and		b.sys_id = a.sys_id
+and		b.role_no = a.role_no
+and		a.sys_id = c.sys_id
+and		a.menu_id = c.menu_id
+order by	b.role_no" update="pf_role_pgm" updatewhere=0 updatekeyinplace=no arguments=(("as_sys_id", string),("as_menu_id", string)) )
+text(band=header alignment="2" text="권한 No." border="0" color="20066866" x="9" y="12" height="60" width="265" html.valueishtml="0"  name=pf_role_pgm_role_no_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="조회" border="0" color="20066866" x="1248" y="12" height="60" width="201" html.valueishtml="0"  name=retrieve_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="입력" border="0" color="20066866" x="1669" y="12" height="60" width="201" html.valueishtml="0"  name=input_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="삭제" border="0" color="20066866" x="1879" y="12" height="60" width="201" html.valueishtml="0"  name=delete_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="저장" border="0" color="20066866" x="2089" y="12" height="60" width="201" html.valueishtml="0"  name=update_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="출력" border="0" color="20066866" x="2510" y="12" height="60" width="201" html.valueishtml="0"  name=print_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="실행" border="0" color="20066866" x="2299" y="12" height="60" width="201" html.valueishtml="0"  name=execute_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="취소" border="0" color="20066866" x="1458" y="12" height="60" width="201" html.valueishtml="0"  name=cancel_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="엑셀" border="0" color="20066866" x="2720" y="12" height="60" width="201" html.valueishtml="0"  name=excel_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="권한 상세설명" border="0" color="20066866" x="2930" y="12" height="60" width="1399" html.valueishtml="0"  name=role_desc_t visible="0"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="권한 명칭" border="0" color="20066866" x="283" y="12" height="60" width="745" html.valueishtml="0"  name=role_name_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="타입" border="0" color="20066866" x="1038" y="12" height="60" width="201" html.valueishtml="0"  name=io_type_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="예비1" border="0" color="20066866" x="4338" y="12" height="60" width="201" html.valueishtml="0"  name=ext1_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="예비2" border="0" color="20066866" x="4549" y="12" height="60" width="201" html.valueishtml="0"  name=ext2_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="예비3" border="0" color="20066866" x="4759" y="12" height="60" width="201" html.valueishtml="0"  name=ext3_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="예비4" border="0" color="20066866" x="4969" y="12" height="60" width="201" html.valueishtml="0"  name=ext4_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="700"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="20066866" x="9" y="12" height="60" width="265" format="[general]" html.valueishtml="0"  name=role_no visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="20066866" x="2930" y="12" height="60" width="1399" format="[general]" html.valueishtml="0"  name=role_desc visible="0" edit.limit=500 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="2" tabsequence=10 border="0" color="20066866" x="1248" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=retrieve_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="2" tabsequence=20 border="0" color="20066866" x="1458" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=cancel_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="2" tabsequence=30 border="0" color="20066866" x="1669" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=input_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="2" tabsequence=40 border="0" color="20066866" x="1879" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=delete_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="2" tabsequence=50 border="0" color="20066866" x="2089" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=update_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="2" tabsequence=60 border="0" color="20066866" x="2299" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=execute_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="2" tabsequence=70 border="0" color="20066866" x="2510" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=print_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=80 border="0" color="20066866" x="2720" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=excel_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="20066866" x="283" y="12" height="60" width="745" format="[general]" html.valueishtml="0"  name=role_name visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="2" tabsequence=32766 border="0" color="20066866" x="1038" y="12" height="60" width="201" format="[general]" html.valueishtml="0"  name=io_type visible="1~tif (pgm_kind_code = 'M', 0, 1)" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=20 alignment="2" tabsequence=90 border="0" color="20066866" x="4343" y="12" height="60" width="197" format="[general]" html.valueishtml="0"  name=ext1_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="2" tabsequence=100 border="0" color="20066866" x="4553" y="12" height="60" width="197" format="[general]" html.valueishtml="0"  name=ext2_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=22 alignment="2" tabsequence=110 border="0" color="20066866" x="4763" y="12" height="60" width="197" format="[general]" html.valueishtml="0"  name=ext3_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+column(band=detail id=23 alignment="2" tabsequence=120 border="0" color="20066866" x="4974" y="12" height="60" width="197" format="[general]" html.valueishtml="0"  name=ext4_auth_yn visible="1~tif (pgm_kind_code = 'M', 0, 1)" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="1" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

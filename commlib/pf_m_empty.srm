@@ -1,0 +1,35 @@
+HA$PBExportHeader$pf_m_empty.srm
+$PBExportComments$MDI $$HEX12$$04d508b884c7a9c6200054ba74b2200024c60cbe1dc8b8d2$$ENDHEX$$($$HEX7$$44beb4c588c794b2200054ba74b2$$ENDHEX$$)
+forward
+global type pf_m_empty from menu
+end type
+end forward
+
+global type pf_m_empty from menu
+end type
+global pf_m_empty pf_m_empty
+
+on pf_m_empty.create
+pf_m_empty=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on pf_m_empty.destroy
+call super::destroy
+end on
+

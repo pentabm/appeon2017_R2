@@ -1,0 +1,9 @@
+HA$PBExportHeader$pf_s_trackmouseevent.srs
+$PBExportComments$Track Mouse Pointer $$HEX3$$78c680bd2000$$ENDHEX$$DLL $$HEX15$$68d518c2200038d69ccda9c62000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_trackmouseevent from structure
+	unsignedlong		cbsize
+	unsignedlong		dwflag
+	unsignedlong		hwndtrack
+	unsignedlong		dwhovertime
+end type
+

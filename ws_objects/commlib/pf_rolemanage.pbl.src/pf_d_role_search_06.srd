@@ -1,0 +1,108 @@
+﻿$PBExportHeader$pf_d_role_search_06.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=1 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no grid.lines=0 grid.columnmove=no selected.mouse=no )
+header(height=88 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=84 color="536870912" )
+table(column=(type=char(7) update=yes updatewhereclause=yes name=role_no dbname="pf_role_memb.role_no" )
+ column=(type=decimal(0) updatewhereclause=yes name=memb_seq dbname="pf_role_memb.memb_seq" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code1 dbname="pf_role_memb.memb_code1" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name1 dbname="pf_role_memb.memb_name1" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code2 dbname="pf_role_memb.memb_code2" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name2 dbname="pf_role_memb.memb_name2" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code3 dbname="pf_role_memb.memb_code3" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name3 dbname="pf_role_memb.memb_name3" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code4 dbname="pf_role_memb.memb_code4" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name4 dbname="pf_role_memb.memb_name4" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code5 dbname="pf_role_memb.memb_code5" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name5 dbname="pf_role_memb.memb_name5" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code6 dbname="pf_role_memb.memb_code6" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name6 dbname="pf_role_memb.memb_name6" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code7 dbname="pf_role_memb.memb_code7" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name7 dbname="pf_role_memb.memb_name7" )
+ column=(type=char(30) updatewhereclause=yes name=memb_code8 dbname="pf_role_memb.memb_code8" )
+ column=(type=char(100) updatewhereclause=yes name=memb_name8 dbname="pf_role_memb.memb_name8" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=valid_dt_yn dbname="pf_role_memb.valid_dt_yn" initial="N" values="	Y/	N" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=valid_dt_from dbname="pf_role_memb.valid_dt_from" )
+ column=(type=char(8) update=yes updatewhereclause=yes name=valid_dt_to dbname="pf_role_memb.valid_dt_to" )
+ column=(type=char(8) updatewhereclause=yes name=io_type dbname="pf_role_memb.io_type" values="모든 프로그램 타입 사용	/입력 프로그램만 사용	M/조회//출력 프로그램만 사용	Q/" )
+ retrieve="select		pf_role_memb.role_no,
+			pf_role_memb.memb_seq,
+			pf_role_memb.memb_code1,
+			pf_role_memb.memb_name1,
+			pf_role_memb.memb_code2,
+			pf_role_memb.memb_name2,
+			pf_role_memb.memb_code3,
+			pf_role_memb.memb_name3,
+			pf_role_memb.memb_code4,
+			pf_role_memb.memb_name4,
+			pf_role_memb.memb_code5,
+			pf_role_memb.memb_name5,
+			pf_role_memb.memb_code6,
+			pf_role_memb.memb_name6,
+			pf_role_memb.memb_code7,
+			pf_role_memb.memb_name7,
+			pf_role_memb.memb_code8,
+			pf_role_memb.memb_name8,
+			pf_role_memb.valid_dt_yn,
+			pf_role_memb.valid_dt_from,
+			pf_role_memb.valid_dt_to,
+			pf_role_memb.io_type
+from		pf_role_memb
+where	pf_role_memb.sys_id = :as_sys_id
+and		pf_role_memb.role_no = :as_role_no
+order by	pf_role_memb.role_no,
+			pf_role_memb.memb_seq
+" arguments=(("as_sys_id", string),("as_role_no", string)) )
+text(band=header alignment="2" text="SEQ" border="0" color="20132659" x="9" y="12" height="60" width="133" html.valueishtml="0"  name=memb_seq_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="기간적용YN" border="0" color="20132659" x="5797" y="12" height="60" width="320" html.valueishtml="0"  name=valid_dt_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용 시작일" border="0" color="20132659" x="6126" y="12" height="60" width="421" html.valueishtml="0"  name=valid_dt_from_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="적용 종료일" border="0" color="20132659" x="6555" y="12" height="60" width="439" html.valueishtml="0"  name=valid_dt_to_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code1" border="0" color="20132659" x="151" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code1_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code2" border="0" color="20132659" x="855" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code2_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code3" border="0" color="20132659" x="1559" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code3_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code4" border="0" color="20132659" x="2254" y="12" height="60" width="261" html.valueishtml="0"  name=memb_code4_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code5" border="0" color="20132659" x="2962" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code5_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code6" border="0" color="20132659" x="3662" y="12" height="60" width="265" html.valueishtml="0"  name=memb_code6_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code7" border="0" color="20132659" x="4379" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code7_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="0" text="Memb Code8" border="0" color="20132659" x="5083" y="12" height="60" width="256" html.valueishtml="0"  name=memb_code8_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name1" border="0" color="20132659" x="416" y="12" height="60" width="430" html.valueishtml="0"  name=memb_name1_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name2" border="0" color="20132659" x="1120" y="12" height="60" width="430" html.valueishtml="0"  name=memb_name2_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name3" border="0" color="20132659" x="1824" y="12" height="60" width="421" html.valueishtml="0"  name=memb_name3_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name4" border="0" color="20132659" x="2523" y="12" height="60" width="430" html.valueishtml="0"  name=memb_name4_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name5" border="0" color="20132659" x="3227" y="12" height="60" width="425" html.valueishtml="0"  name=memb_name5_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name6" border="0" color="20132659" x="3936" y="12" height="60" width="434" html.valueishtml="0"  name=memb_name6_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name7" border="0" color="20132659" x="4645" y="12" height="60" width="430" html.valueishtml="0"  name=memb_name7_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+text(band=header alignment="2" text="Memb Name8" border="0" color="20132659" x="5349" y="12" height="60" width="434" html.valueishtml="0"  name=memb_name8_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=2 alignment="2" tabsequence=32766 border="0" color="20132659" x="9" y="8" height="72" width="133" format="[general]" html.valueishtml="0"  name=memb_seq visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=19 alignment="2" tabsequence=32766 border="0" color="20132659" x="5797" y="8" height="72" width="320" format="[general]" html.valueishtml="0"  name=valid_dt_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=20 alignment="2" tabsequence=32766 border="0" color="20132659" x="6126" y="8" height="72" width="421" format="[general]" html.valueishtml="0"  name=valid_dt_from visible="1" editmask.mask="####/##/##" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=21 alignment="2" tabsequence=32766 border="0" color="20132659" x="6555" y="8" height="72" width="439" format="[general]" html.valueishtml="0"  name=valid_dt_to visible="1" editmask.mask="####/##/##" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="0" color="20132659" x="151" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="0" color="20132659" x="416" y="8" height="72" width="430" format="[general]" html.valueishtml="0"  name=memb_name1 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="0" color="20132659" x="855" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code2 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="0" color="20132659" x="1120" y="8" height="72" width="430" format="[general]" html.valueishtml="0"  name=memb_name2 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="0" color="20132659" x="1559" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code3 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=8 alignment="0" tabsequence=32766 border="0" color="20132659" x="1824" y="8" height="72" width="421" format="[general]" html.valueishtml="0"  name=memb_name3 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="0" tabsequence=32766 border="0" color="20132659" x="2254" y="8" height="72" width="261" format="[general]" html.valueishtml="0"  name=memb_code4 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=10 alignment="0" tabsequence=32766 border="0" color="20132659" x="2523" y="8" height="72" width="430" format="[general]" html.valueishtml="0"  name=memb_name4 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="0" tabsequence=32766 border="0" color="20132659" x="2962" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code5 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=12 alignment="0" tabsequence=32766 border="0" color="20132659" x="3227" y="8" height="72" width="425" format="[general]" html.valueishtml="0"  name=memb_name5 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=13 alignment="0" tabsequence=32766 border="0" color="20132659" x="3662" y="8" height="72" width="265" format="[general]" html.valueishtml="0"  name=memb_code6 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=14 alignment="0" tabsequence=32766 border="0" color="20132659" x="3936" y="8" height="72" width="434" format="[general]" html.valueishtml="0"  name=memb_name6 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=15 alignment="0" tabsequence=32766 border="0" color="20132659" x="4379" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code7 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=16 alignment="0" tabsequence=32766 border="0" color="20132659" x="4645" y="8" height="72" width="430" format="[general]" html.valueishtml="0"  name=memb_name7 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=17 alignment="0" tabsequence=32766 border="0" color="20132659" x="5083" y="8" height="72" width="256" format="[general]" html.valueishtml="0"  name=memb_code8 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=18 alignment="0" tabsequence=32766 border="0" color="20132659" x="5349" y="8" height="72" width="434" format="[general]" html.valueishtml="0"  name=memb_name8 visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="553648127" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

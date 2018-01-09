@@ -1,0 +1,9 @@
+HA$PBExportHeader$pf_s_postvalue.srs
+$PBExportComments$HTTP $$HEX32$$0cd37cc72000a1c120000fbc200018c2e0c220000cd37cb7f8bb30d12000a9c6c4b35cb82000acc0a9c618b494b22000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_postvalue from structure
+	string		param
+	string		data
+	string		rename
+	long		param_type
+end type
+

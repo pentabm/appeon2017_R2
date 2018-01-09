@@ -1,0 +1,46 @@
+﻿$PBExportHeader$pf_f_relativemonth.srf
+global type pf_f_relativemonth from function_object
+end type
+
+forward prototypes
+global function date pf_f_relativemonth (date adt_source, long al_month)
+end prototypes
+
+global function date pf_f_relativemonth (date adt_source, long al_month);// adt_source 값에서 al_month 월을 더한 값을 리턴합니다.
+
+long ll_year, ll_month, ll_day, ll_relative
+integer li_daysinmonth[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+
+if isnull(adt_source) or isnull(al_month) then
+	date ldt_null
+	setnull(ldt_null)
+	return ldt_null
+end if
+
+ll_year = year(adt_source)
+ll_month = month(adt_source)
+ll_day = day(adt_source)
+
+ll_year += truncate(al_month / 12, 0)
+ll_month += mod(al_month, 12)
+
+if ll_month > 12 then
+	ll_year += 1
+	ll_month -= 12
+elseif ll_month <= 0 then
+	ll_year -= 1
+	ll_month += 12
+end if
+
+if ll_day > li_daysinmonth[ll_month] then
+	if ll_month = 2 and ((mod(ll_year, 4) = 0 and mod(ll_year, 100) <> 0) or mod(ll_year, 400) = 0) then
+		ll_day = 29
+	else
+		ll_day = li_daysinmonth[ll_month]
+	end if
+end if
+
+return date(ll_year, ll_month, ll_day)
+
+end function
+

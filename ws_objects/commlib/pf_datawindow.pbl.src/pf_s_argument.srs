@@ -1,0 +1,8 @@
+﻿$PBExportHeader$pf_s_argument.srs
+$PBExportComments$아규먼트 서비스에서 정보 보관용으로 사용되는 스트럭처 입니다.
+global type pf_s_argument from structure
+	string		arg_name
+	string		arg_type
+	string		arg_exp
+end type
+

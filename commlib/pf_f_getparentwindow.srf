@@ -1,0 +1,25 @@
+HA$PBExportHeader$pf_f_getparentwindow.srf
+$PBExportComments$$$HEX29$$0cd37cb7f8bb30d15cb8200018b1a8ac1bbc40c7200024c60cbe1dc8b8d258c7200080bda8ba200008c7c4b3b0c67cb920006cad69d5c8b2e4b2$$ENDHEX$$.
+global type pf_f_getparentwindow from function_object
+end type
+
+forward prototypes
+global function window pf_f_getparentwindow (powerobject apo_object)
+end prototypes
+
+global function window pf_f_getparentwindow (powerobject apo_object);powerobject lpo_parent
+
+if isnull(apo_object) or not isvalid(apo_object) then return lpo_parent
+
+lpo_parent = apo_object.GetParent()
+if isnull(lpo_parent) or not isvalid(lpo_parent) then return lpo_parent
+
+Do While lpo_parent.TypeOf() <> Window! and IsValid (lpo_parent)
+   lpo_parent = lpo_parent.GetParent()
+	if isnull(lpo_parent) or not isvalid(lpo_parent) then return lpo_parent
+Loop
+
+return lpo_parent
+
+end function
+

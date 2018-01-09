@@ -1,0 +1,42 @@
+HA$PBExportHeader$pf_f_getimagepathappeon.srf
+$PBExportComments$Appeon$$HEX27$$74c7200074d07cb774c7b8c5b8d2d0c51cc12000acc0a9c658d594b2200090ce6cc2a9c62000bdac5cb87cb920006cad74d51cc12000$$ENDHEX$$Appeon $$HEX14$$74c7f8bbc0c90cd37cc72000bdac5cb87cb920006cad69d5c8b2e4b2$$ENDHEX$$.
+global type pf_f_getimagepathappeon from function_object
+end type
+
+forward prototypes
+global function string pf_f_getimagepathappeon (string as_filename)
+end prototypes
+
+global function string pf_f_getimagepathappeon (string as_filename);if appeongetclienttype() = 'PB' then
+	return as_filename
+end if
+
+if isnull(as_filename) or as_filename = '' then return as_filename
+
+string	ls_appeonfolder
+string ls_filename, ls_url
+long ll_lastpos
+
+ls_appeonfolder = appeongetcachedir()
+ls_appeonfolder += '\images\'
+
+ll_lastpos = lastpos(as_filename, '\')
+if ll_lastpos > 0 then
+	ls_filename = mid(as_filename, ll_lastpos + 1)
+	ls_filename = ls_appeonfolder + ls_filename
+else
+	ls_filename = as_filename
+end if
+
+//// $$HEX23$$0cd37cc774c7200074c8acc758d5c0c920004ac594b22000bdacb0c62000c1c911c82000e4b2b4c65cb8dcb42000$$ENDHEX$$===> $$HEX20$$74c7f8bbc0c92000acc0a9c6dcc22000c8b9e4b220000cd37cc7200074c8acc72000ecc580bd7cb9$$ENDHEX$$
+//// $$HEX20$$55d678c758d594b2200029bcddc240c720008dc1c4b338bb1cc800ac20001cbcddc069d5c8b2e4b2$$ENDHEX$$. 
+//// pf_n_appmanager.of_checkimagefiles() $$HEX16$$68d518c2d0c51cc12000e4b2b4c65cb8dcb4200098ccacb9200058d538c194c6$$ENDHEX$$.
+//if not fileexists(ls_filename) then
+//	ls_url = appeongetieurl() + "images/" + gnv_extfunc.of_pathstrippath(as_filename)
+//	gnv_extfunc.of_urldownloadtofile(ls_url, ls_filename)
+//end if
+
+return ls_filename
+
+end function
+

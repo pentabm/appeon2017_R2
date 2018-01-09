@@ -1,0 +1,7 @@
+HA$PBExportHeader$pf_s_point.srs
+$PBExportComments$$$HEX8$$c8b9b0c6a4c22000ecd378c730d12000$$ENDHEX$$X, Y $$HEX15$$8cc85cd42000f4bc00ada9c62000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_point from structure
+	long		xpos
+	long		ypos
+end type
+

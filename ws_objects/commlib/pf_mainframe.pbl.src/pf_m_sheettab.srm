@@ -1,0 +1,445 @@
+﻿$PBExportHeader$pf_m_sheettab.srm
+forward
+global type pf_m_sheettab from menu
+end type
+type m_favorite from menu within pf_m_sheettab
+end type
+type m_programmanual from menu within pf_m_sheettab
+end type
+type m_- from menu within pf_m_sheettab
+end type
+type m_tilehorizontal from menu within pf_m_sheettab
+end type
+type m_tilevertical from menu within pf_m_sheettab
+end type
+type m_tilelayer from menu within pf_m_sheettab
+end type
+type m_tilecascade from menu within pf_m_sheettab
+end type
+type m_-0 from menu within pf_m_sheettab
+end type
+type m_closeall from menu within pf_m_sheettab
+end type
+type m_close from menu within pf_m_sheettab
+end type
+global type pf_m_sheettab from menu
+m_favorite m_favorite
+m_programmanual m_programmanual
+m_- m_-
+m_tilehorizontal m_tilehorizontal
+m_tilevertical m_tilevertical
+m_tilelayer m_tilelayer
+m_tilecascade m_tilecascade
+m_-0 m_-0
+m_closeall m_closeall
+m_close m_close
+end type
+end forward
+
+global type pf_m_sheettab from menu
+m_favorite m_favorite
+m_programmanual m_programmanual
+m_- m_-
+m_tilehorizontal m_tilehorizontal
+m_tilevertical m_tilevertical
+m_tilelayer m_tilelayer
+m_tilecascade m_tilecascade
+m_-0 m_-0
+m_closeall m_closeall
+m_close m_close
+end type
+global pf_m_sheettab pf_m_sheettab
+
+type variables
+userobject iuo_parent
+string is_menu_id
+string is_pgm_id
+string is_pgm_name
+
+end variables
+
+forward prototypes
+public subroutine of_setparent (userobject auo_parent, string as_menu_id, string as_pgm_id, string as_pgm_name)
+end prototypes
+
+public subroutine of_setparent (userobject auo_parent, string as_menu_id, string as_pgm_id, string as_pgm_name);is_menu_id = as_menu_id
+is_pgm_id = as_pgm_id
+is_pgm_name = as_pgm_name
+
+iuo_parent = auo_parent
+
+end subroutine
+
+on pf_m_sheettab.create
+pf_m_sheettab=this
+call super::create
+this.text = "pf_m_sheetab"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_favorite=create m_favorite
+this.m_programmanual=create m_programmanual
+this.m_-=create m_-
+this.m_tilehorizontal=create m_tilehorizontal
+this.m_tilevertical=create m_tilevertical
+this.m_tilelayer=create m_tilelayer
+this.m_tilecascade=create m_tilecascade
+this.m_-0=create m_-0
+this.m_closeall=create m_closeall
+this.m_close=create m_close
+this.Item[UpperBound(this.Item)+1]=this.m_favorite
+this.Item[UpperBound(this.Item)+1]=this.m_programmanual
+this.Item[UpperBound(this.Item)+1]=this.m_-
+this.Item[UpperBound(this.Item)+1]=this.m_tilehorizontal
+this.Item[UpperBound(this.Item)+1]=this.m_tilevertical
+this.Item[UpperBound(this.Item)+1]=this.m_tilelayer
+this.Item[UpperBound(this.Item)+1]=this.m_tilecascade
+this.Item[UpperBound(this.Item)+1]=this.m_-0
+this.Item[UpperBound(this.Item)+1]=this.m_closeall
+this.Item[UpperBound(this.Item)+1]=this.m_close
+end on
+
+on pf_m_sheettab.destroy
+call super::destroy
+destroy(this.m_favorite)
+destroy(this.m_programmanual)
+destroy(this.m_-)
+destroy(this.m_tilehorizontal)
+destroy(this.m_tilevertical)
+destroy(this.m_tilelayer)
+destroy(this.m_tilecascade)
+destroy(this.m_-0)
+destroy(this.m_closeall)
+destroy(this.m_close)
+end on
+
+type m_favorite from menu within pf_m_sheettab
+end type
+
+on m_favorite.create
+call super::create
+this.text = "즐겨찾기 추가"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_favorite.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(iuo_parent) then
+	iuo_parent.dynamic of_popup_AddFavorite(is_menu_id, is_pgm_id, is_pgm_name)
+end if
+
+end event
+
+type m_programmanual from menu within pf_m_sheettab
+end type
+
+on m_programmanual.create
+call super::create
+this.text = "프로그램 도움말"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_programmanual.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(iuo_parent) then
+	iuo_parent.dynamic of_popup_ProgramHelp(is_menu_id, is_pgm_id, is_pgm_name)
+end if
+
+end event
+
+type m_- from menu within pf_m_sheettab
+end type
+
+on m_-.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-.destroy
+call super::destroy
+end on
+
+type m_tilehorizontal from menu within pf_m_sheettab
+end type
+
+on m_tilehorizontal.create
+call super::create
+this.text = "수평배열(Tile Horizontal)"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilehorizontal.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(gnv_appmgr.iw_mainframe) then
+	gnv_appmgr.iw_mainframe.ArrangeSheets(TileHorizontal!)
+end if
+
+end event
+
+type m_tilevertical from menu within pf_m_sheettab
+end type
+
+on m_tilevertical.create
+call super::create
+this.text = "수직배열(Tile Vertical)"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilevertical.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(gnv_appmgr.iw_mainframe) then
+	gnv_appmgr.iw_mainframe.ArrangeSheets(Tile!)
+end if
+
+end event
+
+type m_tilelayer from menu within pf_m_sheettab
+end type
+
+on m_tilelayer.create
+call super::create
+this.text = "층배열(Layer)"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilelayer.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(gnv_appmgr.iw_mainframe) then
+	gnv_appmgr.iw_mainframe.ArrangeSheets(Layer!)
+end if
+
+end event
+
+type m_tilecascade from menu within pf_m_sheettab
+end type
+
+on m_tilecascade.create
+call super::create
+this.text = "계단식배열(Cascade)"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_tilecascade.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(gnv_appmgr.iw_mainframe) then
+	gnv_appmgr.iw_mainframe.ArrangeSheets(Cascade!)
+end if
+
+end event
+
+type m_-0 from menu within pf_m_sheettab
+end type
+
+on m_-0.create
+call super::create
+this.text = "-"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_-0.destroy
+call super::destroy
+end on
+
+type m_closeall from menu within pf_m_sheettab
+end type
+
+event clicked;if isvalid(iuo_parent) then
+	iuo_parent.dynamic of_popup_CloseAll()
+end if
+
+end event
+
+on m_closeall.create
+call super::create
+this.text = "모든창 닫기"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_closeall.destroy
+call super::destroy
+end on
+
+type m_close from menu within pf_m_sheettab
+end type
+
+on m_close.create
+call super::create
+this.text = "닫기"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_close.destroy
+call super::destroy
+end on
+
+event clicked;if isvalid(iuo_parent) then
+	iuo_parent.dynamic of_popup_CloseWindow(is_menu_id, is_pgm_id, is_pgm_name)
+end if
+
+end event
+

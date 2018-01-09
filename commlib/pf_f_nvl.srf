@@ -1,0 +1,142 @@
+HA$PBExportHeader$pf_f_nvl.srf
+$PBExportComments$$$HEX4$$24c67cb774d02000$$ENDHEX$$DB$$HEX2$$58c72000$$ENDHEX$$NVL$$HEX15$$fcac2000d9b37cc75cd52000edc560d544c7200018c289d569d5c8b2e4b2$$ENDHEX$$. $$HEX23$$70b374c730d12000c0d085c7d0c52000c1c000ad2000c6c574c7200038d69ccd200000aca5b2200069d5c8b2e4b2$$ENDHEX$$.
+global type pf_f_nvl from function_object
+end type
+
+forward prototypes
+global function any pf_f_nvl (any aa_value1, any aa_value2)
+end prototypes
+
+global function any pf_f_nvl (any aa_value1, any aa_value2);// for PowerBuilder
+if appeongetclienttype() = 'PB' then
+	if isnull(aa_value1) then
+		return aa_value2
+	else
+		return aa_value1
+	end if
+end if
+
+// for Appeon
+any la_ret
+blob lblb_ret
+boolean lb_ret
+byte lbt_ret
+char lc_ret
+date ldt_ret
+datetime ldtm_ret
+decimal ld_ret
+double ldb_ret
+integer li_ret
+long ll_ret
+real lr_ret
+string ls_ret
+time lt_ret
+uint lui_ret
+ulong lul_ret
+
+if isnull(aa_value1) then
+	choose case classname(aa_value2)
+		case 'blob'
+			lblb_ret = aa_value2
+			return lblb_ret
+		case 'boolean'
+			lb_ret = aa_value2
+			return lb_ret
+		case 'byte'
+			lbt_ret = aa_value2
+			return lbt_ret
+		case 'character', 'char'
+			lc_ret = aa_value2
+			return lc_ret
+		case 'date'
+			ldt_ret = aa_value2
+			return ldt_ret
+		case 'datetime'
+			ldtm_ret = aa_value2
+			return ldtm_ret
+		case 'decimal', 'dec'
+			ld_ret = aa_value2
+			return ld_ret
+		case 'double'
+			ldb_ret = aa_value2
+			return ldb_ret
+		case 'integer', 'int'
+			li_ret = aa_value2
+			return li_ret
+		case 'long'
+			ll_ret = aa_value2
+			return ll_ret
+		case 'real'
+			lr_ret = aa_value2
+			return lr_ret
+		case 'string'
+			ls_ret = aa_value2
+			return ls_ret
+		case 'time'
+			lt_ret = aa_value2
+			return lt_ret
+		case 'unsignedinteger', 'unsignedint', 'uint'
+			lui_ret = aa_value2
+			return lui_ret
+		case 'unsignedlong', 'ulong'
+			lul_ret = aa_value2
+			return lul_ret
+		case 'number'
+			ld_ret = aa_value2
+			return ld_ret
+	end choose
+else
+	choose case classname(aa_value1)
+		case 'blob'
+			lblb_ret = aa_value1
+			return lblb_ret
+		case 'boolean'
+			lb_ret = aa_value1
+			return lb_ret
+		case 'byte'
+			lbt_ret = aa_value1
+			return lbt_ret
+		case 'character', 'char'
+			lc_ret = aa_value1
+			return lc_ret
+		case 'date'
+			ldt_ret = aa_value1
+			return ldt_ret
+		case 'datetime'
+			ldtm_ret = aa_value1
+			return ldtm_ret
+		case 'decimal', 'dec'
+			ld_ret = aa_value1
+			return ld_ret
+		case 'double'
+			ldb_ret = aa_value1
+			return ldb_ret
+		case 'integer', 'int'
+			li_ret = aa_value1
+			return li_ret
+		case 'long'
+			ll_ret = aa_value1
+			return ll_ret
+		case 'real'
+			lr_ret = aa_value1
+			return lr_ret
+		case 'string'
+			ls_ret = aa_value1
+			return ls_ret
+		case 'time'
+			lt_ret = aa_value1
+			return lt_ret
+		case 'unsignedinteger', 'unsignedint', 'uint'
+			lui_ret = aa_value1
+			return lui_ret
+		case 'unsignedlong', 'ulong'
+			lul_ret = aa_value1
+			return lul_ret
+		case 'number'
+			ld_ret = aa_value1
+			return ld_ret
+	end choose
+end if
+
+end function
+

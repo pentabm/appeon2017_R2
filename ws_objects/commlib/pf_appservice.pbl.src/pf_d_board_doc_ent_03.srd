@@ -1,0 +1,76 @@
+﻿$PBExportHeader$pf_d_board_doc_ent_03.srd
+$PBExportComments$게시물 등록 화면 - 게시물 Master 조회용 데이터 윈도우
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=504 color="536870912" )
+table(column=(type=char(12) update=yes updatewhereclause=yes key=yes name=sys_id dbname="pf_docu_mst.sys_id" )
+ column=(type=char(7) update=yes updatewhereclause=yes key=yes name=board_no dbname="pf_docu_mst.board_no" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes key=yes name=docu_no dbname="pf_docu_mst.docu_no" )
+ column=(type=char(200) update=yes updatewhereclause=yes name=docu_title dbname="pf_docu_mst.docu_title" )
+ column=(type=decimal(0) update=yes updatewhereclause=yes name=tree_level dbname="pf_docu_mst.tree_level" )
+ column=(type=datetime update=yes updatewhereclause=yes name=start_dtm dbname="pf_docu_mst.start_dtm" )
+ column=(type=datetime update=yes updatewhereclause=yes name=end_dtm dbname="pf_docu_mst.end_dtm" )
+ column=(type=char(5) update=yes updatewhereclause=yes name=memb_type dbname="pf_docu_mst.memb_type" values="전체조회	all/부분조회	part/" )
+ column=(type=char(7) update=yes updatewhereclause=yes name=role_no dbname="pf_docu_mst.role_no" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=hold_yn dbname="pf_docu_mst.hold_yn" initial="N" values="공지허가	N/공지보류	Y/" )
+ column=(type=char(1) update=yes updatewhereclause=yes name=ontop_yn dbname="pf_docu_mst.ontop_yn" initial="N" values="YES	Y/NO	N/" )
+ column=(type=char(100) update=yes updatewhereclause=yes name=writer_name dbname="pf_docu_mst.writer_name" )
+ column=(type=char(16) update=yes updatewhereclause=yes name=linked_menu_id dbname="pf_docu_mst.linked_menu_id" )
+ column=(type=datetime update=yes updatewhereclause=yes name=create_dtm dbname="pf_docu_mst.create_dtm" )
+ column=(type=char(12) update=yes updatewhereclause=yes name=create_user dbname="pf_docu_mst.create_user" )
+ column=(type=datetime update=yes updatewhereclause=yes name=update_dtm dbname="pf_docu_mst.update_dtm" )
+ column=(type=char(12) update=yes updatewhereclause=yes name=update_user dbname="pf_docu_mst.update_user" )
+ retrieve="  SELECT PF_DOCU_MST.SYS_ID,   
+         PF_DOCU_MST.BOARD_NO,   
+         PF_DOCU_MST.DOCU_NO,   
+         PF_DOCU_MST.DOCU_TITLE,   
+         PF_DOCU_MST.TREE_LEVEL,   
+         PF_DOCU_MST.START_DTM,   
+         PF_DOCU_MST.END_DTM,   
+         PF_DOCU_MST.MEMB_TYPE,   
+		PF_DOCU_MST.ROLE_NO,
+         PF_DOCU_MST.HOLD_YN,   
+         PF_DOCU_MST.ONTOP_YN,
+         PF_DOCU_MST.WRITER_NAME,   
+         PF_DOCU_MST.LINKED_menu_id,   
+         PF_DOCU_MST.CREATE_DTM,   
+         PF_DOCU_MST.CREATE_USER,   
+         PF_DOCU_MST.UPDATE_DTM,   
+         PF_DOCU_MST.UPDATE_USER  
+    FROM PF_DOCU_MST  
+   WHERE ( PF_DOCU_MST.SYS_ID = :as_sys_id ) AND  
+         ( PF_DOCU_MST.BOARD_NO = :as_board_no ) AND  
+         ( PF_DOCU_MST.DOCU_NO = :al_docu_no )    
+" update="PF_DOCU_MST" updatewhere=0 updatekeyinplace=yes arguments=(("as_sys_id", string),("as_board_no", string),("al_docu_no", number)) )
+column(band=detail id=13 alignment="0" tabsequence=80 border="2" color="33554432" x="489" y="576" height="92" width="421" format="[general]" html.valueishtml="0"  name=linked_menu_id visible="0" edit.limit=7 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="연계 프로그램:" border="2" color="33554432" x="23" y="576" height="92" width="462" html.valueishtml="0"  name=linked_menu_id_t visible="0"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="문서번호:" border="2" color="33554432" x="23" y="16" height="92" width="462" html.valueishtml="0"  name=docu_no_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="타이틀:" border="2" color="33554432" x="23" y="112" height="92" width="462" html.valueishtml="0"  name=docu_title_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="게시 기간:" border="2" color="33554432" x="23" y="208" height="92" width="462" html.valueishtml="0"  name=start_dtm_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="조회 권한" border="2" color="33554432" x="23" y="304" height="92" width="462" html.valueishtml="0"  name=memb_type_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="보류 여부" border="2" color="33554432" x="23" y="400" height="92" width="462" html.valueishtml="0"  name=hold_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=4 alignment="0" tabsequence=10 border="2" color="33554432" x="489" y="112" height="92" width="2107" format="[general]" html.valueishtml="0"  name=docu_title visible="1" edit.limit=200 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=6 alignment="2" tabsequence=20 border="2" color="33554432" x="489" y="208" height="92" width="485" format="[shortdate] [time]" html.valueishtml="0"  name=start_dtm visible="1" editmask.ddcalendar=yes editmask.mask="yyyy/mm/dd" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=7 alignment="2" tabsequence=30 border="2" color="33554432" x="1070" y="208" height="92" width="485" format="[shortdate] [time]" html.valueishtml="0"  name=end_dtm visible="1" editmask.ddcalendar=yes editmask.mask="yyyy/mm/dd" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="0" tabsequence=40 border="2" color="33554432" x="489" y="304" height="92" width="818" format="[general]" html.valueishtml="0"  name=memb_type visible="1" radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=9 alignment="0" tabsequence=50 border="2" color="33554432" x="1312" y="304" height="92" width="795" format="[general]" html.valueishtml="0"  name=role_no visible="1~tif ( memb_type = 'part', 1, 0 )" dddw.name=pf_dddw_role_mst dddw.displaycolumn=role_name dddw.datacolumn=role_no dddw.percentwidth=100 dddw.lines=10 dddw.limit=0 dddw.allowedit=no dddw.useasborder=yes dddw.case=any dddw.autoretrieve=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=10 alignment="0" tabsequence=60 border="2" color="33554432" x="489" y="400" height="92" width="818" format="[general]" html.valueishtml="0"  name=hold_yn visible="1" radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="상단고정 게시물" border="2" color="33554432" x="1312" y="400" height="92" width="462" html.valueishtml="0"  name=t_1 visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=11 alignment="0" tabsequence=90 border="2" color="33554432" x="1778" y="400" height="92" width="818" format="[general]" html.valueishtml="0"  name=ontop_yn visible="1" radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=3 alignment="0" tabsequence=32766 border="2" color="33554432" x="489" y="16" height="92" width="818" format="[general]" html.valueishtml="0"  name=docu_no visible="1" edit.limit=32 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=12 alignment="0" tabsequence=70 border="2" color="33554432" x="1778" y="16" height="92" width="818" format="[general]" html.valueishtml="0"  name=writer_name visible="1" editmask.mask="" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="~~" border="2" color="33554432" x="978" y="208" height="92" width="87" html.valueishtml="0"  name=end_dtm_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="1" text="작성자" border="2" color="33554432" x="1312" y="16" height="92" width="462" html.valueishtml="0"  name=writer_name_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()

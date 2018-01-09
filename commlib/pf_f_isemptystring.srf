@@ -1,0 +1,24 @@
+HA$PBExportHeader$pf_f_isemptystring.srf
+$PBExportComments$$$HEX5$$38bb90c7f4c574c72000$$ENDHEX$$Null $$HEX5$$12ac74c770ac98b02000$$ENDHEX$$Empty String $$HEX17$$78c72000bdacb0c67cb92000b4cc6cd058d594b2200068d518c2200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_f_isemptystring from function_object
+end type
+
+forward prototypes
+global function boolean pf_f_isemptystring (readonly string as_string)
+end prototypes
+
+global function boolean pf_f_isemptystring (readonly string as_string);// as_string $$HEX6$$c0bc18c2200012ac74c72000$$ENDHEX$$NULL$$HEX4$$74c770ac98b02000$$ENDHEX$$Empty $$HEX5$$78c72000bdacb0c62000$$ENDHEX$$True $$HEX2$$acb934d1$$ENDHEX$$
+// $$HEX13$$04c7200000cf74c7a4c200ac200044c5ccb22000bdacb0c62000$$ENDHEX$$False $$HEX2$$acb934d1$$ENDHEX$$
+
+if not isnull(as_string) then
+	if len(trim(as_string)) > 0 then
+		return false
+	else
+		return true
+	end if
+else
+	return true
+end if
+
+end function
+

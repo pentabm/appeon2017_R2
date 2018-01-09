@@ -1,0 +1,19 @@
+﻿$PBExportHeader$pf_s_popupsearch.srs
+$PBExportComments$공통 팝업 윈도우에 정보 전송용 파라미터 스트럭처 입니다.
+global type pf_s_popupsearch from structure
+	transaction		transaction_object
+	string		window_title
+	string		condition_dwobject
+	string		condition_defaultvalues
+	string		list_dwobject
+	string		list_arguments
+	boolean		auto_retrieve
+	string		getitem_column[]
+	string		column_value[]
+	boolean		data_selected
+	long		xpos
+	long		ypos
+	long		width
+	long		height
+end type
+

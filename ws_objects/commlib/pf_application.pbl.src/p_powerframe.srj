@@ -1,0 +1,43 @@
+﻿$PBExportHeader$p_powerframe.srj
+EXE:powerframe.exe,,0,0,1
+CMP:0,0,0,2,0,0
+COM:Sybase, Inc.
+DES:Sybase, Inc. Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1,0,0,1
+PVN:1,0,0,1
+FVS:1,0,0,1
+FVN:1,0,0,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_mainframe.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_controls.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_datawindow.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_rolemanage.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_appservice.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\pf_examples.pbl,,1
+PBD:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,,1
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,pf_n_appconfig,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,str_b,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeongetieurl,f
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_n_hashtable,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,pf_n_appmanager,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,pf_n_appsession,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_tagmonitorinfo,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,pf_n_nonvisualobject,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_n_internetresult,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeonextfuncs,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeongetcachedir,f
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_size,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeongetclientip,f
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_application.pbl,powerframe,a
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_syscolor,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_n_logger,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeongetclienttype,f
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_point,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_rect,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,appeonservice,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\appeon_workarounds.pbl,str_a,s
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_n_pentalibrary,u
+OBJ:C:\Project\Powerframe_v3.02\source\commlib\pf_utilities.pbl,pf_s_shellexecuteinfo,s

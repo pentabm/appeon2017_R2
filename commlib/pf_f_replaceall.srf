@@ -1,0 +1,28 @@
+HA$PBExportHeader$pf_f_replaceall.srf
+$PBExportComments$$$HEX5$$0cd3ccc64cbe54b32000$$ENDHEX$$replace $$HEX17$$68d518c240c62000d9b37cc75cd52000edc560d544c7200018c289d558d5c0c9ccb9$$ENDHEX$$, $$HEX20$$80acc9c018b494b2200038bb90c7f4c574c7200018bcf5bc18b494b220009fd618c2ccb97cd02000$$ENDHEX$$replace$$HEX7$$7cb9200018c289d569d5c8b2e4b2$$ENDHEX$$.
+global type pf_f_replaceall from function_object
+end type
+
+forward prototypes
+global function string pf_f_replaceall (string as_source, string as_old, string as_new)
+end prototypes
+
+global function string pf_f_replaceall (string as_source, string as_old, string as_new);long ll_Pos = 1
+
+// Find the first occurrence of as_old ...
+ll_Pos = Pos ( as_source, as_old, ll_Pos )
+
+// Only enter the loop if you find as_old ...
+Do While ll_Pos > 0 
+   // Replace old_str with  ls_new_str ...
+   as_source = Replace ( as_source, ll_Pos, Len(as_old), as_new)
+
+   // Find the next occurrence of ls_old_str 
+   ll_Pos = Pos ( as_source, as_old, ll_Pos + Len(as_new))
+Loop
+
+// Return string
+Return as_source
+
+end function
+

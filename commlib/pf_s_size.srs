@@ -1,0 +1,7 @@
+HA$PBExportHeader$pf_s_size.srs
+$PBExportComments$$$HEX6$$24c60cbe1dc8b8d258c72000$$ENDHEX$$Width, Height $$HEX17$$15c8f4bc7cb92000f4bc00ad58d594b22000a4c2b8d2edb798cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_size from structure
+	unsignedlong		width
+	unsignedlong		height
+end type
+

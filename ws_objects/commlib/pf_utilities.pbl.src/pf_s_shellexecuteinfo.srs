@@ -1,0 +1,20 @@
+﻿$PBExportHeader$pf_s_shellexecuteinfo.srs
+$PBExportComments$ShellExecute 외부 API 호출 파라미터용 스트럭처 입니다.
+global type pf_s_shellexecuteinfo from structure
+	long		cbSize
+	long		fMask
+	long		hwnd
+	string		lpVerb
+	string		lpFile
+	string		lpParameters
+	string		lpDirectory
+	long		nShow
+	long		hInstApp
+	long		lpIDList
+	string		lpClass
+	long		hkeyClass
+	long		dwHotKey
+	long		hIcon
+	long		hProcess
+end type
+

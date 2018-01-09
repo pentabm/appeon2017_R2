@@ -1,0 +1,41 @@
+HA$PBExportHeader$pf_f_parsetohashtable.srf
+$PBExportComments$$$HEX9$$fcc8b4c5c4c9200038bb90c7f4c544c72000$$ENDHEX$$HashTable (Name&Value Collection) $$HEX11$$3cc75cb820006cad38bb200084bd1dc169d5c8b2e4b2$$ENDHEX$$
+global type pf_f_parsetohashtable from function_object
+end type
+
+forward prototypes
+global function long pf_f_parsetohashtable (string as_query, string as_delimiter, ref pf_n_hashtable anv_result)
+end prototypes
+
+global function long pf_f_parsetohashtable (string as_query, string as_delimiter, ref pf_n_hashtable anv_result);// $$HEX9$$fcc8b4c5c4c9200038bb90c7f4c544c72000$$ENDHEX$$HashTable (Name&Value Collection) $$HEX11$$3cc75cb820006cad38bb200084bd1dc169d5c8b2e4b2$$ENDHEX$$
+// $$HEX5$$0cd37cb7f8bb30d12000$$ENDHEX$$:
+//    1. as_query : $$HEX7$$0cd3f1c260d5200038bb90c7f4c5$$ENDHEX$$($$HEX1$$08c6$$ENDHEX$$: OnVSplitScroll=NoResize; DDDWObject=dddw_arg)
+// $$HEX4$$b0acfcac12ac2000$$ENDHEX$$: Name $$HEX2$$fcac2000$$ENDHEX$$Value $$HEX10$$ecce09b858c1200012ac44c7200016ac94b22000$$ENDHEX$$HashTable $$HEX2$$acb934d1$$ENDHEX$$
+
+if not isvalid(anv_result) then
+	anv_result = create pf_n_hashtable
+else
+	anv_result.of_clear()
+end if
+
+// $$HEX11$$e8b27cc720000cd37cb7f8bb30d15cb820000cd3f1c2$$ENDHEX$$
+string ls_parms[], ls_key, ls_data
+long ll_parmcnt, ll_cnt, ll_pos
+
+ll_parmcnt = pf_f_parsetoarray(as_query, as_delimiter, ls_parms[])
+
+// $$HEX1$$a4d0$$ENDHEX$$=$$HEX11$$12ac200015d6dcd020000cd37cb7f8bb30d17cb92000$$ENDHEX$$HashTable $$HEX4$$d0c52000f4bc00ad$$ENDHEX$$
+for ll_cnt = 1 to ll_parmcnt
+	ll_pos = pos(ls_parms[ll_cnt], '=')
+	if ll_pos > 0 then
+		ls_key = trim(left(ls_parms[ll_cnt], ll_pos - 1))
+		ls_data = trim(mid(ls_parms[ll_cnt], ll_pos + 1))
+		anv_result.of_put(ls_key, ls_data)
+	end if
+next
+
+// $$HEX6$$b0acfcac12ac2000acb934d1$$ENDHEX$$
+return anv_result.of_size()
+
+end function
+

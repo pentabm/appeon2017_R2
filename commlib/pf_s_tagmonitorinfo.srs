@@ -1,0 +1,9 @@
+HA$PBExportHeader$pf_s_tagmonitorinfo.srs
+$PBExportComments$$$HEX5$$a8bac8b230d115c8f4bc$$ENDHEX$$($$HEX3$$74d5c1c0c4b3$$ENDHEX$$)$$HEX6$$7cb920006cad58d594b22000$$ENDHEX$$API$$HEX10$$a9c62000a4c2b8d2edb7d0cc200085c7c8b2e4b2$$ENDHEX$$.
+global type pf_s_tagmonitorinfo from structure
+	long		cbsize
+	pf_s_rect		rcmonitor
+	pf_s_rect		rcwork
+	long		dwflags
+end type
+

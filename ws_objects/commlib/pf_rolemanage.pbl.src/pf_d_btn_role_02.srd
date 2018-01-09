@@ -1,0 +1,102 @@
+﻿$PBExportHeader$pf_d_btn_role_02.srd
+release 10.5;
+datawindow(units=0 timer_interval=0 color=1073741824 processing=0 HTMLDW=no print.printername="" print.documentname="" print.orientation = 0 print.margin.left = 110 print.margin.right = 110 print.margin.top = 96 print.margin.bottom = 96 print.paper.source = 0 print.paper.size = 0 print.canusedefaultprinter=yes print.prompt=no print.buttons=no print.preview.buttons=no print.cliptext=no print.overrideprintjob=no print.collate=yes print.preview.outline=yes hidegrayline=no )
+header(height=0 color="536870912" )
+summary(height=0 color="536870912" )
+footer(height=0 color="536870912" )
+detail(height=596 color="536870912" )
+table(column=(type=char(12) updatewhereclause=yes name=sys_id dbname="pf_role_pgm.sys_id" )
+ column=(type=char(7) updatewhereclause=yes name=role_no dbname="pf_role_pgm.role_no" )
+ column=(type=char(16) updatewhereclause=yes name=menu_id dbname="pf_role_pgm.menu_id" )
+ column=(type=char(16) updatewhereclause=yes name=pf_pgm_mst_menu_id dbname="pf_pgm_mst.menu_id" )
+ column=(type=char(50) updatewhereclause=yes name=pgm_id dbname="pf_pgm_mst.pgm_id" )
+ column=(type=char(100) updatewhereclause=yes name=pgm_name dbname="pf_pgm_mst.pgm_name" )
+ column=(type=char(1) updatewhereclause=yes name=pgm_kind_code dbname="pf_pgm_mst.pgm_kind_code" values="Menu	M/Program	P/" )
+ column=(type=char(1) updatewhereclause=yes name=valid_dt_yn dbname="pf_role_pgm.valid_dt_yn" values="	Y/	N" )
+ column=(type=char(8) updatewhereclause=yes name=valid_dt_from dbname="pf_role_pgm.valid_dt_from" )
+ column=(type=char(8) updatewhereclause=yes name=valid_dt_to dbname="pf_role_pgm.valid_dt_to" )
+ column=(type=char(1) updatewhereclause=yes name=retrieve_auth_yn dbname="pf_role_pgm.retrieve_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=input_auth_yn dbname="pf_role_pgm.input_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=delete_auth_yn dbname="pf_role_pgm.delete_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=update_auth_yn dbname="pf_role_pgm.update_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=print_auth_yn dbname="pf_role_pgm.print_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=execute_auth_yn dbname="pf_role_pgm.execute_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=cancel_auth_yn dbname="pf_role_pgm.cancel_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=excel_auth_yn dbname="pf_role_pgm.excel_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=indiv_btn_auth_yn dbname="pf_role_pgm.indiv_btn_auth_yn" values="	Y/	N" )
+ column=(type=char(1) updatewhereclause=yes name=comm_btn_auth_yn dbname="pf_role_pgm.comm_btn_auth_yn" values="미설정	N/설정	Y/" )
+ column=(type=char(8) updatewhereclause=yes name=io_type dbname="pf_pgm_mst.io_type" values="	/입력프로그램	M/조회프로그램	Q/출력프로그램	P/" )
+ retrieve="SELECT	t01.sys_id,
+			t01.role_no,
+			t01.menu_id,
+			t02.menu_id,
+			t02.pgm_id,
+			t02.pgm_name,
+			t02.pgm_kind_code,
+			t01.valid_dt_yn,
+			t01.valid_dt_from,
+			t01.valid_dt_to,
+			t01.retrieve_auth_yn,
+			t01.input_auth_yn,
+			t01.delete_auth_yn,
+			t01.update_auth_yn,
+			t01.print_auth_yn,
+			t01.execute_auth_yn,
+			t01.cancel_auth_yn,
+			t01.excel_auth_yn,
+			t01.indiv_btn_auth_yn,
+			t01.comm_btn_auth_yn,
+			t02.io_type
+FROM		pf_role_pgm t01,
+			pf_pgm_mst t02
+where	t02.sys_id = t01.sys_id
+and		t02.menu_id = t01.menu_id
+and		t01.sys_id = :as_sys_id
+and		t01.role_no = :as_role_no
+and		t01.menu_id = :as_menu_id
+" arguments=(("as_sys_id", string),("as_role_no", string),("as_menu_id", string)) )
+column(band=detail id=4 alignment="0" tabsequence=32766 border="2" color="33554432" x="494" y="24" height="72" width="457" format="[general]" html.valueishtml="0"  name=pf_pgm_mst_menu_id visible="1" edit.limit=0 edit.case=any edit.focusrectangle=no edit.autoselect=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="" border="0" color="21382726" x="18" y="16" height="568" width="453" html.valueishtml="0"  name=t_1 visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="메뉴 ID" border="0" color="21382726" x="27" y="24" height="60" width="443" html.valueishtml="0"  name=pf_role_pgm_menu_id_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="프로그램 ID" border="0" color="21382726" x="1051" y="20" height="72" width="443" html.valueishtml="0"  name=pf_pgm_mst_pgm_id_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=5 alignment="0" tabsequence=32766 border="2" color="33554432" x="1518" y="20" height="72" width="942" format="[general]" html.valueishtml="0"  name=pgm_id visible="1" edit.limit=50 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="메뉴 명" border="0" color="21382726" x="27" y="116" height="60" width="443" html.valueishtml="0"  name=pf_pgm_mst_pgm_name_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=6 alignment="0" tabsequence=32766 border="2" color="33554432" x="494" y="116" height="72" width="1001" format="[general]" html.valueishtml="0"  name=pgm_name visible="1" edit.limit=100 edit.case=any edit.focusrectangle=no edit.autoselect=yes edit.autohscroll=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=8 alignment="2" tabsequence=10 border="0" color="33554432" x="494" y="208" height="72" width="82" format="[general]" html.valueishtml="0"  name=valid_dt_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=9 alignment="2" tabsequence=20 border="2" color="33554432" x="590" y="208" height="72" width="411" format="[general]" html.valueishtml="0"  name=valid_dt_from visible="1" editmask.autoskip=yes editmask.mask="####/##/##" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="2" text="~~" border="0" color="33554432" x="1010" y="208" height="72" width="78" html.valueishtml="0"  name=pf_role_pgm_valid_dt_to_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=20 alignment="0" tabsequence=120 border="0" color="21382726" x="494" y="304" height="60" width="539" format="[general]" html.valueishtml="0"  name=comm_btn_auth_yn visible="1" radiobuttons.columns=2 radiobuttons.scale=yes radiobuttons.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="553648127" )
+column(band=detail id=11 alignment="2" tabsequence=40 border="0" color="33554432" x="494" y="400" height="72" width="82" format="[general]" html.valueishtml="0"  name=retrieve_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=15 alignment="2" tabsequence=80 border="0" color="33554432" x="494" y="508" height="72" width="82" format="[general]" html.valueishtml="0"  name=print_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="입력버튼권한" border="0" color="21382726" x="617" y="400" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_input_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="실행버튼권한" border="0" color="21382726" x="617" y="508" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_execute_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=12 alignment="2" tabsequence=50 border="0" color="33554432" x="1083" y="400" height="72" width="82" format="[general]" html.valueishtml="0"  name=input_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=16 alignment="2" tabsequence=90 border="0" color="33554432" x="1083" y="508" height="72" width="82" format="[general]" html.valueishtml="0"  name=execute_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="삭제버튼권한" border="0" color="21382726" x="1207" y="400" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_delete_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="취소버튼권한" border="0" color="21382726" x="1207" y="508" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_cancel_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=13 alignment="2" tabsequence=60 border="0" color="33554432" x="1673" y="400" height="72" width="82" format="[general]" html.valueishtml="0"  name=delete_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=17 alignment="2" tabsequence=100 border="0" color="33554432" x="1673" y="508" height="72" width="82" format="[general]" html.valueishtml="0"  name=cancel_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="저장버튼권한" border="0" color="21382726" x="1801" y="400" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_update_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="엑셀버튼권한" border="0" color="21382726" x="1801" y="508" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_excel_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=14 alignment="2" tabsequence=70 border="0" color="33554432" x="2267" y="400" height="72" width="82" format="[general]" html.valueishtml="0"  name=update_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=18 alignment="2" tabsequence=110 border="0" color="33554432" x="2267" y="508" height="72" width="82" format="[general]" html.valueishtml="0"  name=excel_auth_yn visible="1" checkbox.text="" checkbox.on="Y" checkbox.off="N" checkbox.scale=yes checkbox.threed=yes  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="공통버튼권한설정" border="0" color="21382726" x="27" y="296" height="60" width="443" html.valueishtml="0"  name=pf_role_pgm_comm_btn_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="조회버튼권한" border="0" color="21382726" x="27" y="392" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_retrieve_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="출력버튼권한" border="0" color="21382726" x="27" y="500" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_print_auth_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=7 alignment="0" tabsequence=32766 border="2" color="33554432" x="2002" y="120" height="72" width="457" format="[general]" html.valueishtml="0"  name=pgm_kind_code visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+text(band=detail alignment="0" text="메뉴 구분" border="0" color="21382726" x="1536" y="120" height="60" width="443" html.valueishtml="0"  name=pf_pgm_mst_pgm_kind_code_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="적용기간설정" border="0" color="21382726" x="27" y="208" height="72" width="443" html.valueishtml="0"  name=pf_role_pgm_valid_dt_yn_t visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+text(band=detail alignment="0" text="프로그램 IO 타입" border="0" color="21382726" x="1536" y="208" height="72" width="443" html.valueishtml="0"  name=t_2 visible="1"  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="1" font.pitch="2" font.charset="129" background.mode="2" background.color="32370413" )
+column(band=detail id=10 alignment="2" tabsequence=30 border="2" color="33554432" x="1079" y="208" height="72" width="411" format="[general]" html.valueishtml="0"  name=valid_dt_to visible="1" editmask.autoskip=yes editmask.mask="####/##/##" editmask.focusrectangle=no  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="1" font.charset="129" background.mode="1" background.color="536870912" )
+column(band=detail id=21 alignment="0" tabsequence=32766 border="2" color="33554432" x="2002" y="208" height="72" width="457" format="[general]" html.valueishtml="0"  name=io_type visible="1" ddlb.limit=0 ddlb.allowedit=no ddlb.case=any  font.face="맑은 고딕" font.height="-9" font.weight="400"  font.family="2" font.pitch="2" font.charset="129" background.mode="1" background.color="536870912" )
+htmltable(border="1" )
+htmlgen(clientevents="1" clientvalidation="1" clientcomputedfields="1" clientformatting="0" clientscriptable="0" generatejavascript="1" encodeselflinkargs="1" netscapelayers="0" pagingmethod=0 generatedddwframes="1" )
+xhtmlgen() cssgen(sessionspecific="0" )
+xmlgen(inline="0" )
+xsltgen()
+jsgen()
+export.xml(headgroups="1" includewhitespace="0" metadatatype=0 savemetadata=0 )
+import.xml()
+export.pdf(method=0 distill.custompostscript="0" xslfop.print="0" )
+export.xhtml()
+ 

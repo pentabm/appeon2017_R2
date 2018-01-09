@@ -1,0 +1,35 @@
+﻿$PBExportHeader$pf_m_empty.srm
+$PBExportComments$MDI 프레임용 메뉴 오브젝트(비어있는 메뉴)
+forward
+global type pf_m_empty from menu
+end type
+end forward
+
+global type pf_m_empty from menu
+end type
+global pf_m_empty pf_m_empty
+
+on pf_m_empty.create
+pf_m_empty=this
+call super::create
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on pf_m_empty.destroy
+call super::destroy
+end on
+

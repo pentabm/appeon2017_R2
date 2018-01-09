@@ -1,0 +1,36 @@
+﻿$PBExportHeader$pf_f_selectrowdialog.srf
+$PBExportComments$팝업윈도우를 오픈해 사용자에게 특정항목을 선택하게 합니다.
+global type pf_f_selectrowdialog from function_object
+end type
+
+forward prototypes
+global function long pf_f_selectrowdialog (string as_title, string as_comment, ref datastore ads_list)
+end prototypes
+
+global function long pf_f_selectrowdialog (string as_title, string as_comment, ref datastore ads_list);// Dialog 윈도우를 오픈해 사용자에게 DW 행을 선택 받는다
+
+if not isvalid(ads_list) then return -1
+
+string ls_tobeopen = 'pf_w_selectrowdialog'
+window lw_open
+long ll_selectedrow
+
+gnv_session.of_put(ls_tobeopen + ".window_title", as_title)
+gnv_session.of_put(ls_tobeopen + ".comment_for_user", as_comment)
+gnv_session.of_put(ls_tobeopen + ".datastore_ref", ads_list)
+
+open(lw_open, ls_tobeopen)
+
+if gnv_session.of_containskey(ls_tobeopen + ".return_value") then
+	ll_selectedrow = gnv_session.of_getlong(ls_tobeopen + ".return_value")
+end if
+
+gnv_session.of_remove(ls_tobeopen + ".window_title")
+gnv_session.of_remove(ls_tobeopen + ".comment_for_user")
+gnv_session.of_remove(ls_tobeopen + ".datastore_ref")
+gnv_session.of_remove(ls_tobeopen + ".return_value")
+
+return ll_selectedrow
+
+end function
+

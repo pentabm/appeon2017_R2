@@ -1,0 +1,82 @@
+﻿$PBExportHeader$pf_f_getdbmstype.srf
+global type pf_f_getdbmstype from function_object
+end type
+
+forward prototypes
+global function string pf_f_getdbmstype (transaction atr_trans)
+end prototypes
+
+global function string pf_f_getdbmstype (transaction atr_trans);// 트랜젝션 오브젝트의 DBMS 속성에 따른 데이터베이스  명칭을 리턴합니다.
+
+if isnull(atr_trans) then return ''
+if not isvalid(atr_trans) then return ''
+
+constant integer SQL_DBMS_NAME = 17
+constant integer SQL_DATABASE_NAME = 16
+
+string ls_dbms, ls_type
+integer li_length
+long ll_dbhndl
+
+ls_dbms = atr_trans.dbms
+choose case upper(left(ls_dbms, 3))
+	// ASE, ASA
+	case 'ASE', 'SYC'
+		return 'Sybase'
+	// Informix
+	case 'IN8', 'IN9', 'I10'
+		return 'Informix'
+	// Oracle
+	case 'O80', 'O90', 'O10', 'ORA'
+		return 'Oracle'
+	// SQLServer
+	case 'SNC'
+		return 'SQLServer'
+	// ADO.net
+	case 'ADO'
+		if pos(atr_trans.DBParm, "Namespace='System.Data.SqlClient'") > 0 then
+			return 'SQLServer'
+		elseif pos(atr_trans.DBParm, "Namespace='Oracle.DataAccess.Client'") > 0 then
+			return 'Oracle'
+		elseif pos(atr_trans.DBParm, "Namespace='Sybase.Data.") > 0 then
+			return 'Sybase'
+		elseif pos(atr_trans.DBParm, "Namespace='IBM.Data.Informix") > 0 then
+			return 'Informix'
+		end if
+	// OLEDB
+	case 'OLE'
+		if pos(atr_trans.DBParm, "PROVIDER='SQLOLEDB'") > 0 then
+			return 'SQLServer'
+		elseif pos(atr_trans.DBParm, "PROVIDER='MSDASQL'") > 0 then
+			return 'SQLServer'
+		elseif pos(atr_trans.DBParm, "PROVIDER='SQLNCLI'") > 0 then
+			return 'SQLServer'
+		elseif pos(atr_trans.DBParm, "PROVIDER='MSDAORA'") > 0 then
+			return 'Oracle'
+		elseif pos(atr_trans.DBParm, "PROVIDER='ASAProv") > 0 then
+			return 'Sybase'
+		elseif pos(atr_trans.DBParm, "Provider='Ifxoledbc'") > 0 then
+			return 'Informix'
+		end if
+	// ODBC
+	case 'ODB'
+		ls_dbms = space(256)
+		ll_dbhndl = atr_trans.DbHandle()
+		gnv_extfunc.SQLGetInfo(ll_dbhndl, SQL_DBMS_NAME, ls_dbms, 255, li_length)
+
+		choose case lower(trim(ls_dbms))
+			case 'adaptive server anywhere', 'sybase ase'
+				return 'Sybase'
+			case 'microsoft sql server'
+				return 'SQLServer'
+			case 'oracle'
+				return 'Oracle'
+			case 'informix'
+				return 'Informix'
+		end choose
+end choose
+
+return ''
+
+end function
+

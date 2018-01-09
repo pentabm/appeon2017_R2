@@ -1,0 +1,36 @@
+HA$PBExportHeader$pf_f_selectrowdialog.srf
+$PBExportComments$$$HEX31$$1dd3c5c508c7c4b3b0c67cb9200024c608d574d52000acc0a9c690c7d0c58cac2000b9d215c86dd5a9ba44c7200020c1ddd058d58cac200069d5c8b2e4b2$$ENDHEX$$.
+global type pf_f_selectrowdialog from function_object
+end type
+
+forward prototypes
+global function long pf_f_selectrowdialog (string as_title, string as_comment, ref datastore ads_list)
+end prototypes
+
+global function long pf_f_selectrowdialog (string as_title, string as_comment, ref datastore ads_list);// Dialog $$HEX15$$08c7c4b3b0c67cb9200024c608d574d52000acc0a9c690c7d0c58cac2000$$ENDHEX$$DW $$HEX9$$89d544c7200020c1ddd020001bbc94b2e4b2$$ENDHEX$$
+
+if not isvalid(ads_list) then return -1
+
+string ls_tobeopen = 'pf_w_selectrowdialog'
+window lw_open
+long ll_selectedrow
+
+gnv_session.of_put(ls_tobeopen + ".window_title", as_title)
+gnv_session.of_put(ls_tobeopen + ".comment_for_user", as_comment)
+gnv_session.of_put(ls_tobeopen + ".datastore_ref", ads_list)
+
+open(lw_open, ls_tobeopen)
+
+if gnv_session.of_containskey(ls_tobeopen + ".return_value") then
+	ll_selectedrow = gnv_session.of_getlong(ls_tobeopen + ".return_value")
+end if
+
+gnv_session.of_remove(ls_tobeopen + ".window_title")
+gnv_session.of_remove(ls_tobeopen + ".comment_for_user")
+gnv_session.of_remove(ls_tobeopen + ".datastore_ref")
+gnv_session.of_remove(ls_tobeopen + ".return_value")
+
+return ll_selectedrow
+
+end function
+
